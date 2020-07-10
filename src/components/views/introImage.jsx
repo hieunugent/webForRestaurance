@@ -1,6 +1,6 @@
 import React from 'react'
-import Image1 from './img/picture1.jpg'
-import "./views/main.css"
+import Image1 from '../img/picture1.jpg'
+import "./main.css"
 export default function topimage() {
     return (
         <div>
