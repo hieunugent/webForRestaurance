@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './App.css';
-import NavBar from './components/Navbar.jsx'
+import NavBar from './components/navbar.jsx'
 import Image1 from './components/topimage.jsx'
 function App() {
   return (
