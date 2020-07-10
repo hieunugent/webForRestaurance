@@ -1,13 +1,12 @@
 import React from 'react';
-
 import './App.css';
 import NavBar from './components/navbar.jsx'
-import Image1 from './components/topimage.jsx'
+import Imageintro from './components/introImage.jsx'
 function App() {
   return (
     <>
-      <NavBar/>
-      <Image1/>
+      <NavBar />
+      <Imageintro />
     </>
   );
 }
