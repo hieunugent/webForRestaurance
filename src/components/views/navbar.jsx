@@ -17,6 +17,9 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 const useStyles = makeStyles((theme) => ({
+    root:{
+      backgroundColor:"hsl(0, 100%, 20%)",
+    },
     grow: {
         flexGrow: 1,
     },
@@ -157,7 +160,7 @@ export default function Navbar() {
 
     return (
       <div className={classes.grow}>
-        <AppBar position="fixed">
+        <AppBar className={classes.root} position="fixed">
           <Toolbar>
             <IconButton
               edge="start"
@@ -168,7 +171,7 @@ export default function Navbar() {
               <MenuIcon />
             </IconButton>
             <Typography className={classes.title} variant="h6" noWrap>
-              Your Restaurant 
+              Your Restaurant
             </Typography>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
@@ -190,8 +193,8 @@ export default function Navbar() {
                   <AddShoppingCartIcon />
                 </Badge>
               </IconButton>
-            
-              <IconButton
+           {/* account button later */}
+              {/* <IconButton
                 edge="end"
                 aria-label="account of current user"
                 aria-controls={menuId}
@@ -199,11 +202,16 @@ export default function Navbar() {
                 onClick={handleProfileMenuOpen}
                 color="inherit"
               >
-                <AccountCircle />
-              </IconButton>
+                <AccountCircle /> 
+              </IconButton> */}
             </div>
             <div className={classes.sectionMobile}>
-              <IconButton
+              <IconButton aria-label="show 4 new mails" color="inherit">
+                <Badge badgeContent={3} color="secondary">
+                  <AddShoppingCartIcon />
+                </Badge>
+              </IconButton>
+              {/* <IconButton
                 aria-label="show more"
                 aria-controls={mobileMenuId}
                 aria-haspopup="true"
@@ -211,7 +219,7 @@ export default function Navbar() {
                 color="inherit"
               >
                 <MoreIcon />
-              </IconButton>
+              </IconButton> */}
             </div>
           </Toolbar>
         </AppBar>

@@ -1,7 +1,7 @@
 {
   "name": "projecta001",
   "version": "0.1.0",
-   "main": "index.js",
+  "main": "index.js",
   "engines": {
     "node": "12.x",
     "npm": "6.x"

@@ -12,6 +12,7 @@ import bugger from "../img/food/bugger.jpg";
            foodDescription: "The discription of Spring Roll",
            foodPrice: "$10",
            foodImage: springRoll,
+           foodquantity:0,
            price: 10,
          },
 
@@ -21,6 +22,7 @@ import bugger from "../img/food/bugger.jpg";
            foodDescription: "The discription of Spring Roll",
            foodPrice: "$10",
            foodImage: eggRoll,
+           foodquantity: 0,
            price: 10,
          },
          {
@@ -29,6 +31,7 @@ import bugger from "../img/food/bugger.jpg";
            foodDescription: "The discription of Spring Roll",
            foodPrice: "$10",
            foodImage: frenchFries,
+           foodquantity: 0,
            price: 10,
          },
          {
@@ -37,6 +40,7 @@ import bugger from "../img/food/bugger.jpg";
            foodDescription: "The discription of Spring Roll",
            foodPrice: "$10",
            foodImage: pho,
+           foodquantity: 0,
            price: 10,
          },
          {
@@ -45,6 +49,7 @@ import bugger from "../img/food/bugger.jpg";
            foodDescription: "The discription of Spring Roll",
            foodPrice: "$10",
            foodImage: bugger,
+           foodquantity: 0,
            price: 10,
          },
        ];

@@ -1,7 +1,53 @@
 .imageModify{
     margin-left: auto;
     margin-right:auto;
+    border-radius: .25rem;
     width: 100%;
     height: auto;
     resize: inherit;
+}
+.inputAmountCss{
+    margin-left: 1rem;
+   
+}
+.inputfieldcss{
+    width:25px;
+}
+.required:after{
+    content: " *";
+    color: red;
+}
+input[type=number]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+.dialogScreen{
+   
+    height: 60%;
+}
+.addbtnCart{
+    margin-left: 10%;
+    margin-top: auto;
+    margin-bottom: 2px;
+    width: 40%;
+    height: 20%;
+    color: azure;
+    background-color:hsl(0, 100%, 20%);
+}
+.addbtnCart:hover{
+     color: hsl(0, 100%, 40%);
+     background-color:azure;
+}
+.cancelbtn{
+    margin-right: 10%;
+    margin-top: auto;
+    margin-bottom: 2px;
+    width: 40%;
+    height: 20%;
+    color:hsl(0, 100%, 20%);
+    background-color: white;
+}
+.cancelbtn:hover{
+      color: azure;
+      background-color:hsl(0, 100%, 40%);
 }
