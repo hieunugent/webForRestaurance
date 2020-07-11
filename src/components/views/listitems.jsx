@@ -32,7 +32,9 @@ const useStyles = makeStyles((theme) => ({
     margin: "auto",
     marginBottom: "2px",
     maxWidth: "auto",
+    color: "hsl(0, 87 %, 3 %)",
   },
+
   paperorder: {
     padding: theme.spacing(2),
     margin: "auto",

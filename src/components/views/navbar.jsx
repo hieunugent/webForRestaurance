@@ -11,8 +11,8 @@ import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-
-
+import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
+import PolymerIcon from '@material-ui/icons/Polymer';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
@@ -104,9 +104,9 @@ export default function Navbar() {
         handleMobileMenuClose();
     };
 
-    const handleMobileMenuOpen = (event) => {
-        setMobileMoreAnchorEl(event.currentTarget);
-    };
+    // const handleMobileMenuOpen = (event) => {
+    //     setMobileMoreAnchorEl(event.currentTarget);
+    // };
 
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
@@ -168,12 +168,12 @@ export default function Navbar() {
               color="inherit"
               aria-label="open drawer"
             >
-              <MenuIcon />
+              <PolymerIcon fontSize="large" />
             </IconButton>
             <Typography className={classes.title} variant="h6" noWrap>
               Your Restaurant
             </Typography>
-            <div className={classes.search}>
+            {/* <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
@@ -185,7 +185,7 @@ export default function Navbar() {
                 }}
                 inputProps={{ "aria-label": "search" }}
               />
-            </div>
+            </div> */}
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
               <IconButton aria-label="show 4 new mails" color="inherit">
