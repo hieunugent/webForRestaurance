@@ -21,10 +21,10 @@ export default function foodNav() {
                     </li>
                     <li className="item-list-nav">
                         <a href="#FastFood" className="item-anchor-nav">
-                         Appetizer
+                         Appetizers
                     </a>
                     </li>  
-                    <li className="item-list-nav">
+                    {/* <li className="item-list-nav">
                         <a href="#Dishes" className="item-anchor-nav  ">
                             Dishes
                     </a>
@@ -38,7 +38,7 @@ export default function foodNav() {
                         <a href="#Deserts" className="item-anchor-nav">
                             Deserts
                     </a>
-                    </li>   
+                    </li>    */}
                        
             </ul>
 
