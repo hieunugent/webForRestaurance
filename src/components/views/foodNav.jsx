@@ -1,11 +1,15 @@
 import React from 'react'
 import "./foodNav.css"
+
+
 export default function foodNav() {
+    
+
     return (
-        <div>
-            <nav role="navigation" className="main-list-nav">
+        <div >
+            <nav  role="navigation" className="main-list-nav">
             <ul className="item-menu-nav">
-                    <li className="item-list-nav">
+                    <li className="item-list-nav  ">
                         <a href="#Dishes" className="item-anchor-nav  ">
                             Dishes 
                     </a>
@@ -16,8 +20,8 @@ export default function foodNav() {
                     </a>
                     </li>
                     <li className="item-list-nav">
-                        <a href="#Deserts" className="item-anchor-nav">
-                            Deserts
+                        <a href="#FastFood" className="item-anchor-nav">
+                         Appetizer
                     </a>
                     </li>  
                     <li className="item-list-nav">
@@ -34,9 +38,10 @@ export default function foodNav() {
                         <a href="#Deserts" className="item-anchor-nav">
                             Deserts
                     </a>
-                    </li>  
-                   
+                    </li>   
+                       
             </ul>
+
             </nav>
         </div>
     )

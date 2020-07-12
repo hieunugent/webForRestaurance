@@ -1,17 +1,22 @@
 .main-list-nav{
     display:inline;
     
-
-
+    
 }
+.section-nav-food{ 
+    position: relative;
+}
+
 .item-menu-nav, .item-list-nav{
     display: block;
     list-style: none;
+    height: 50px;
     margin: 0;
     padding: 0;
     line-height: normal;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-     ;
+    
+    
 }
 
 .item-menu-nav{
@@ -19,14 +24,15 @@
     margin-left: 10%;
     margin-right: 10%;
     width: 80%;
-    position: relative;
-  
+    position: relative; 
     overflow: auto;
     background-color: white;
+  
+
 }
 
 .item-anchor-nav{
-    
+
     text-decoration: none;
     color:  hsl(0, 86%, 5%);
     display: block;
@@ -34,10 +40,14 @@
     font-size: 15px;
     border-bottom: 3px solid transparent;
     padding: 14px 16px;
+    
 
 }
 .item-anchor-nav:hover{
+
     border-bottom: 3px solid hsl(0, 100%, 20%);
+    transition: border-bottom 1s;
+    transition-duration: 1s;
 }
 
 

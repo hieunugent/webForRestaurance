@@ -22,7 +22,7 @@ import { TextField } from '@material-ui/core';
 import Slide from "@material-ui/core/Slide";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-
+import "./main.css";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "2px",
     maxWidth: "auto",
     color: "hsl(0, 87 %, 3 %)",
+   
   },
 
   paperorder: {
@@ -43,14 +44,16 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     width: "auto",
-
     height: "auto",
+  
   },
   img: {
     margin: "auto",
     display: "block",
     maxWidth: "90%",
     maxHeight: "100%",
+    
+    
   },
 
   appBar: {
@@ -66,6 +69,10 @@ const useStyles = makeStyles((theme) => ({
   closeDialogbtn: {
     marginRight: "0.5%",
   },
+  bottomLayer:{
+    zIndex:"1",
+  },
+  
 }));
 
 
@@ -105,10 +112,10 @@ const ListForms =(props)=>{
     return (
       <>
         {/* list food page */}
-        <div onClick={handleClickOpen}>
+        <div onClick={handleClickOpen} >
           <Paper className={classes.paper}>
             <Grid container spacing={2}>
-              <Grid xs={4} item>
+              <Grid xs={4} item className={classes.bottomLayer}>
                 <ButtonBase className={classes.image}>
                   <img
                     className={classes.img}
@@ -260,8 +267,49 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function listitems() {
            
     return(
-        
-        listFood.map((list, index) => {
+      <>
+        <section >
+        <div className="outer-title-section">
+          <div id="Dishes" className="titlesection">
+            <div className="inner-title-section">
+
+            <h3 className="sectionTitle"> Main Dishes</h3>
+            </div>
+          </div>
+        </div>
+          
+          <div  className="section-food"> 
+            {listFood.filter(list => list.foodType === "dish").map((list, index) => {
+              return (
+                <div key={`${index}-${list.foodName}`} >
+                  <ListForms
+                    id={index}
+                    value={list}
+                    foodName={list.foodName}
+                    foodDescription={list.foodDescription}
+                    foodId={list.foodId}
+                    foodPrice={list.foodPrice}
+                    foodImage={list.foodImage}
+                    onClick={onclick}
+                  />
+
+                </div>
+              );
+            }
+            )}
+          </div>
+          <div className="outer-title-section">
+
+          <div id="Drinks" className="titlesection">
+            <div className="inner-title-section">
+            <h3 className="sectionTitle"> Drinks Options</h3>
+            </div>
+            </div>
+          </div>
+     
+          <div  className="section-food">
+         
+          {listFood.filter(list => list.foodType === "drinks").map((list, index) => {
             return (
               <div key={`${index}-${list.foodName}`} >
                 <ListForms
@@ -274,11 +322,47 @@ export default function listitems() {
                   foodImage={list.foodImage}
                   onClick={onclick}
                 />
-               
+
               </div>
-            );            
-            }
-        ));
+            );
+          }
+          )}
+          </div>
+
+          <div className="outer-title-section">
+
+          <div id="FastFood" className="titlesection">
+          <div  className="inner-title-section">
+              <h3 className="sectionTitle"> Fast Food</h3>
+          </div>
+           
+            </div>
+
+          </div>
+          <div  className="section-food">
+          {listFood.filter(list => list.foodType === "fastfood").map((list, index) => {
+            return (
+              <div key={`${index}-${list.foodName}`} >
+                <ListForms
+                  id={index}
+                  value={list}
+                  foodName={list.foodName}
+                  foodDescription={list.foodDescription}
+                  foodId={list.foodId}
+                  foodPrice={list.foodPrice}
+                  foodImage={list.foodImage}
+                  onClick={onclick}
+                />
+
+              </div>
+            );
+          }
+          )}
+          </div>
+        </section>
+    </>
+        
+        );
     }
     
 

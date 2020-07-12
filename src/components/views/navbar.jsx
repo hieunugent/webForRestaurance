@@ -164,6 +164,7 @@ export default function Navbar() {
           <Toolbar>
             <IconButton
               edge="start"
+              href="#back-to-top"
               className={classes.menuButton}
               color="inherit"
               aria-label="open drawer"

@@ -4,7 +4,7 @@
     border-radius: .25rem;
     width: 100%;
     height: auto;
-    resize: inherit;
+    resize: both;
 }
 .inputAmountCss{
     margin-left: 1rem;
@@ -50,4 +50,36 @@ input[type=number]::-webkit-inner-spin-button{
 .cancelbtn:hover{
       color: azure;
       background-color:hsl(0, 100%, 40%);
+}
+
+section {
+    overflow-y: scroll;
+    scroll-behavior: smooth; 
+}
+
+.section-food{
+   display: block;
+   background-position-y: 120px;
+  
+}
+
+.sectionTitle{
+    top:60px;
+    text-align: center;
+   
+
+}
+.titlesection{
+    padding-top: 100px; 
+    /* background-color: hsl(142, 95%, 24%); */
+    height: 100px;
+    
+}
+.inner-title-section{
+    height: 50px;
+    padding-bottom: 0px;
+    /* background-color: aqua; */
+}
+.outer-title-section{
+    height: 150px;
 }
