@@ -224,7 +224,7 @@ const ListForms =(props)=>{
                     </button>
                    
                       <input
-                      className="inputfieldcss"
+                        className="inputfieldcss"
                         type="number"
                         name="quantity"
                         step="1"
@@ -242,6 +242,7 @@ const ListForms =(props)=>{
               <button className="addbtnCart" onClick={handleSubmit}>
                 Add to cart
               </button>
+              <br/>
               <button className="cancelbtn" onClick={handleClose}>
                 Cancel
               </button>

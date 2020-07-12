@@ -12,6 +12,10 @@
 }
 .inputfieldcss{
     width:25px;
+    border-radius: 1rem;
+}
+#decButton, #incButton {
+    border-radius: 1rem;
 }
 .required:after{
     content: " *";
@@ -26,13 +30,15 @@ input[type=number]::-webkit-inner-spin-button{
     height: 60%;
 }
 .addbtnCart{
+    margin-right: 10%;
     margin-left: 10%;
     margin-top: auto;
     margin-bottom: 2px;
-    width: 40%;
+    width: 80%;
     height: 20%;
     color: azure;
     background-color:hsl(0, 100%, 20%);
+    border-radius: .7rem;
 }
 .addbtnCart:hover{
      color: hsl(0, 100%, 40%);
@@ -40,12 +46,15 @@ input[type=number]::-webkit-inner-spin-button{
 }
 .cancelbtn{
     margin-right: 10%;
+    margin-left: 10%;
     margin-top: auto;
     margin-bottom: 2px;
-    width: 40%;
+    width: 80%;
     height: 20%;
     color:hsl(0, 100%, 20%);
     background-color: white;
+    border-radius: .7rem;
+
 }
 .cancelbtn:hover{
       color: azure;
