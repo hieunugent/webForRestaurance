@@ -13,6 +13,10 @@ import blueHaiwaii from "../img/drinks/blueHaiwaii.jpg";
 import hurricane from "../img/drinks/hurricane.jpg";
 import malibu from "../img/drinks/malibu.jpg";
 import yellowfever from "../img/drinks/yellowfever.jpg";
+import soda from "../img/drinks/soda.jpg";
+import coffee from "../img/drinks/coffee.jpg";
+import boba from "../img/drinks/boba.jpg";
+
 
  const listFood = [
          {
@@ -138,7 +142,36 @@ import yellowfever from "../img/drinks/yellowfever.jpg";
      foodquantity: 0,
      price: 10,
    },
-
+   {
+     //  foodId: 10,
+     foodType: "drinks",
+     foodName: "Boba Tea",
+     foodDescription: "The discription of Spring Roll",
+     foodPrice: "$10",
+     foodImage: boba,
+     foodquantity: 0,
+     price: 10,
+   },
+   {
+     //  foodId: 10,
+     foodType: "drinks",
+     foodName: "Soda Drinks",
+     foodDescription: "The discription of Spring Roll",
+     foodPrice: "$10",
+     foodImage: soda,
+     foodquantity: 0,
+     price: 10,
+   },
+   {
+     //  foodId: 10,
+     foodType: "drinks",
+     foodName: "offee",
+     foodDescription: "The discription of Spring Roll",
+     foodPrice: "$10",
+     foodImage: coffee,
+     foodquantity: 0,
+     price: 10,
+   },
 
 
 

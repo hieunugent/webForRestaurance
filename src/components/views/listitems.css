@@ -82,6 +82,7 @@ ordercss
 section {
     overflow-y: scroll;
     scroll-behavior: smooth; 
+    margin-bottom: auto;
 }
 .sectionTitle{
     top:60px;

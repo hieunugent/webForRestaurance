@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid, Paper } from '@material-ui/core'
-import EditIcon from '@material-ui/icons/Edit';
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 
@@ -24,8 +24,8 @@ export default function receiptForm() {
                     </Grid>
                     <Grid container xs={4} direction="row" spacing={1} >
                         <Grid item > <h3>$15</h3> </Grid>
-                        <Grid item > <h3> <EditIcon fontSize="small" /></h3> </Grid>
-                        <Grid item > <h3> <DeleteForeverIcon fontSize="small" /></h3> </Grid>
+                        <Grid item className="colorItem"> <h3> <EditOutlinedIcon fontSize="small"  /></h3> </Grid>
+                        <Grid item className="colorItem"> <h3> <DeleteForeverIcon fontSize="small" /></h3> </Grid>
                     </Grid>
                 </Grid> 
                 

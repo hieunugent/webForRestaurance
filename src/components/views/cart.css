@@ -23,3 +23,6 @@
     margin-right: 10%;
     font-size: large;
 }
+.colorItem{
+    color:hsl(0, 100%, 20%);
+}
