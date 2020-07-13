@@ -71,3 +71,13 @@ figure {
     /* margin-inline-start: 40px;
     margin-inline-end: 40px; */
 }
+
+.cell {
+    flex: 0 0 auto;
+    min-height: 0;
+    min-width: 0;
+    width: 100%;
+}
+.small-6 {
+    width: calc(50% - 1.3888888889rem);
+}

@@ -105,7 +105,7 @@ import yellowfever from "../img/drinks/yellowfever.jpg";
    {
     //  foodId: 7,
      foodType: "drinks",
-     foodName: "Blue Haiwaii Cocktail",
+     foodName: "Blue Haiwaii",
      foodDescription: "The discription of Spring Roll",
      foodPrice: "$10",
      foodImage: blueHaiwaii,
@@ -115,7 +115,7 @@ import yellowfever from "../img/drinks/yellowfever.jpg";
    {
     //  foodId: 8,
      foodType: "drinks",
-     foodName: "Huricane Cocktail",
+     foodName: "Huricane ",
      foodDescription: "The discription of Spring Roll",
      foodPrice: "$10",
      foodImage: hurricane,
@@ -125,7 +125,7 @@ import yellowfever from "../img/drinks/yellowfever.jpg";
    {
     //  foodId: 9,
      foodType: "drinks",
-     foodName: "Malibu Cocktail",
+     foodName: "Malibu ",
      foodDescription: "The discription of Spring Roll",
      foodPrice: "$10",
      foodImage: malibu,
@@ -135,7 +135,7 @@ import yellowfever from "../img/drinks/yellowfever.jpg";
    {
     //  foodId: 10,
      foodType: "drinks",
-     foodName: "Yellow Fever Cocktails",
+     foodName: "Tropical Fruit",
      foodDescription: "The discription of Spring Roll",
      foodPrice: "$10",
      foodImage: yellowfever,

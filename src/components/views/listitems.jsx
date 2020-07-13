@@ -26,35 +26,57 @@ import OrderOption from "./optionSeclectForm";
 import "./main.css";
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    
+    display: 'flex',
+    flexWrap: 'wrap',
+    '& > *': {
+      margin: theme.spacing(1),
+      width: theme.spacing(16),
+      height: theme.spacing(20),
+    },
+    alignItems: "center",
+    marginLeft:"1rem",
+    marginRight:"1rem",
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     margin: "auto",
     marginBottom: "2px",
-    maxWidth: "auto",
+    maxWidth: "100%",
+    maxHeight: "auto", 
     color: "hsl(0, 87 %, 3 %)",
-   
+    
   },
 
   paperorder: {
     padding: theme.spacing(2),
     margin: "auto",
     marginBottom: 0,
-    maxWidth: "auto",
+    maxWidth: "100%",
+    
   },
   image: {
-    width: "auto",
+    display:"block", 
+    width: theme.spacing(16),
     height: "auto",
-  
+    backgroundColor:"red", 
+   
   },
   img: {
-    margin: "auto",
-    display: "block",
-    maxWidth: "90%",
-    maxHeight: "100%",
-    
-    
+    margin:0,
+    display: "flex",
+    height:"80%",
+    maxWidth: "100%",
+    maxHeight: "100px",
+    backgroundColor:"green",
+    alignItems: "center",
+
+
+  },
+  namefood:{
+    maxHeight:"10px",
+    width:"100%",
+    maxWidth:"100%",
   },
 
   appBar: {
@@ -72,6 +94,8 @@ const useStyles = makeStyles((theme) => ({
   },
   bottomLayer:{
     zIndex:"1",
+    
+  
   },
   
 }));
@@ -116,19 +140,28 @@ const ListForms =(props)=>{
     return (
       <>
         {/* list food page */}
-        <div onClick={handleClickOpen} >
-          <Paper className={classes.paper}>
-            <Grid container spacing={2}>
-              <Grid xs={4} item className={classes.bottomLayer}>
+        <div onClick={handleClickOpen} className={classes.root}>
+          <Paper  className={classes.paper} elevation={1}>
+            {/* <Grid container spacing={2}> */}
+              <Grid item className={classes.bottomLayer} justify="center" >
                 <ButtonBase className={classes.image}>
-                  <img
-                    className={classes.img}
-                    alt="complex"
-                    src={props.foodImage}
-                  />
+                  <figure className={classes.img}>
+                    <img
+                      className={classes.img}
+                      alt="complex"
+                      src={props.foodImage}
+                    />
+                </figure>
+                  <div className="price">
+                    {props.foodPrice}
+                  </div>
+              
                 </ButtonBase>
+                <Typography className={classes.namefood} gutterBottom variant="body1" align="center" display="inline" noWrap>
+                  # {props.foodId}.{props.foodName}
+                </Typography>
               </Grid>
-              <Grid xs={8} item container>
+              {/* <Grid xs={8} item container>
                 <Grid item xs={10} container direction="column" spacing={2}>
                   <Grid item xs>
                     <Typography gutterBottom variant="subtitle1">
@@ -149,13 +182,15 @@ const ListForms =(props)=>{
                     ></Typography>
                   </Grid>
                 </Grid>
-                <Grid item>
+                {/* <Grid item>
                   <Typography variant="subtitle1">{props.foodPrice}</Typography>
-                </Grid>
-              </Grid>
-            </Grid>
+                </Grid> */}
+              {/* </Grid>
+            </Grid> */} 
           </Paper>
         </div>
+
+
         {/* Order page */}
         <div>
           <Dialog
@@ -197,6 +232,7 @@ const ListForms =(props)=>{
                 src={props.foodImage}
                 alt="backgroundLogo"
               />
+              
             </div>
             <div className="ordercss">
               <Paper className={classes.paperorder}>
@@ -283,7 +319,7 @@ export default function listitems() {
           <div  className="section-food"> 
             {listFood.filter(list => list.foodType === "dish").map((list, index) => {
               return (
-                <div key={`${index}-${list.foodName}`} >
+                <div key={`${index}-${list.foodName}`} className="itemFood" >
                   <ListForms
                     id={index}
                     value={list}
@@ -313,7 +349,7 @@ export default function listitems() {
          
           {listFood.filter(list => list.foodType === "drinks").map((list, index) => {
             return (
-              <div key={`${index}-${list.foodName}`} >
+              <div key={`${index}-${list.foodName}`} className="itemFood">
                 <ListForms
                   id={index}
                   value={list}
@@ -335,15 +371,16 @@ export default function listitems() {
           <div id="FastFood" className="titlesection">
           <div  className="inner-title-section">
               <h3 className="sectionTitle"> Fast Food</h3>
-          </div>
-           
+          </div> 
             </div>
-
           </div>
+
+         
           <div  className="section-food">
+          
           {listFood.filter(list => list.foodType === "fastfood").map((list, index) => {
             return (
-              <div key={`${index}-${list.foodName}`} >
+              <div key={`${index}-${list.foodName}`} className="itemFood" >
                 <ListForms
                   id={index}
                   value={list}
@@ -358,8 +395,8 @@ export default function listitems() {
               </div>
             );
           }
-          )}
-          </div>
+              )}
+            </div> 
         </section>
     </>
         

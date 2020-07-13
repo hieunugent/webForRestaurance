@@ -88,11 +88,18 @@ section {
 }
 
 .section-food{
-   display: block;
+   display: flex;
+   flex-wrap: wrap;
    background-position-y: 120px;
-  
+   
+    margin-left: "2rem";
 }
-
+.itemFood{
+  width: 100%;
+}
+.section-food>.itemFood{
+    flex: 0 50%;
+}
 .sectionTitle{
     top:60px;
     text-align: center;
@@ -121,4 +128,18 @@ section {
 .alignment-data{
     text-align: right;
     margin-right: 1rem;
+}
+.price{
+    position: absolute;
+    display: flex;
+    top: 0;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: #e90800;
+    color: #fff;
+    font-size: 1.25rem;
+    align-items: center;
+    justify-content: center;
 }
