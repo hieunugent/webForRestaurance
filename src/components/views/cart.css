@@ -1,0 +1,25 @@
+.receiptPaper{
+    padding: spacing(2);
+    margin-left:6px;
+  
+}
+.makepaymentBtn {
+    width: 80%;
+    height: 60px;
+    color: azure;
+    background-color:hsl(0, 100%, 20%);
+    border-radius: .7rem;
+}
+.continueShopBtn{
+    width: 80%;
+    height: 60px;
+    color:hsl(0, 100%, 20%);
+    background-color: white;
+    border-radius: .7rem;
+}
+.makepaymentBtn, .continueShopBtn{
+    margin-top:  1rem;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: large;
+}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Paper from "@material-ui/core/Paper";
-import { fade, makeStyles } from "@material-ui/core/styles";
+import {  makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import ButtonBase from "@material-ui/core/ButtonBase";
@@ -8,22 +8,15 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 import listFood from "../data/fooddata"
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItem from "@material-ui/core/ListItem";
-import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
 
-import CloseIcon from "@material-ui/icons/Close";
-
-import { TextField } from '@material-ui/core';
 import Slide from "@material-ui/core/Slide";
-import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import OrderOption from "./optionSeclectForm";
 import "./main.css";
+import "./listitems.css";
+import "./cart.css";
 const useStyles = makeStyles((theme) => ({
   root: {
     
@@ -161,32 +154,6 @@ const ListForms =(props)=>{
                   # {props.foodId}.{props.foodName}
                 </Typography>
               </Grid>
-              {/* <Grid xs={8} item container>
-                <Grid item xs={10} container direction="column" spacing={2}>
-                  <Grid item xs>
-                    <Typography gutterBottom variant="subtitle1">
-                      # {props.foodId}.{props.foodName}
-                    </Typography>
-                    <Typography variant="body2" gutterBottom>
-                      {props.foodDescription}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                    ></Typography>
-                  </Grid>
-                  <Grid item>
-                    <Typography
-                      variant="body2"
-                      style={{ cursor: "pointer" }}
-                    ></Typography>
-                  </Grid>
-                </Grid>
-                {/* <Grid item>
-                  <Typography variant="subtitle1">{props.foodPrice}</Typography>
-                </Grid> */}
-              {/* </Grid>
-            </Grid> */} 
           </Paper>
         </div>
 
@@ -336,35 +303,7 @@ export default function listitems() {
             }
             )}
           </div>
-          <div className="outer-title-section">
-
-          <div id="Drinks" className="titlesection">
-            <div className="inner-title-section">
-            <h3 className="sectionTitle"> Drinks Options</h3>
-            </div>
-            </div>
-          </div>
-     
-          <div  className="section-food">
          
-          {listFood.filter(list => list.foodType === "drinks").map((list, index) => {
-            return (
-              <div key={`${index}-${list.foodName}`} className="itemFood">
-                <ListForms
-                  id={index}
-                  value={list}
-                  foodName={list.foodName}
-                  foodDescription={list.foodDescription}
-                  foodId={list.foodId}
-                  foodPrice={list.foodPrice}
-                  foodImage={list.foodImage}
-                  onClick={onclick}
-                />
-
-              </div>
-            );
-             })}
-          </div>
 
           <div className="outer-title-section">
 
@@ -397,6 +336,37 @@ export default function listitems() {
           }
               )}
             </div> 
+
+          <div className="outer-title-section">
+
+            <div id="Drinks" className="titlesection">
+              <div className="inner-title-section">
+                <h3 className="sectionTitle"> Drinks Options</h3>
+              </div>
+            </div>
+          </div>
+
+          <div className="section-food">
+
+            {listFood.filter(list => list.foodType === "drinks").map((list, index) => {
+              return (
+                <div key={`${index}-${list.foodName}`} className="itemFood">
+                  <ListForms
+                    id={index}
+                    value={list}
+                    foodName={list.foodName}
+                    foodDescription={list.foodDescription}
+                    foodId={list.foodId}
+                    foodPrice={list.foodPrice}
+                    foodImage={list.foodImage}
+                    onClick={onclick}
+                  />
+
+                </div>
+              );
+            })}
+          </div>
+
         </section>
     </>
         

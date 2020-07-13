@@ -4,6 +4,11 @@ import eggRoll from "../img/food/eggroll.jpg";
 import frenchFries from "../img/food/frenchFries.jpg";
 import pho from "../img/food/phopic1.jpg";
 import bugger from "../img/food/bugger.jpg";
+
+import pizza from "../img/food/pizza.jpg";
+
+import taco from "../img/food/taco.jpg";
+import frychicken from "../img/food/frychicken.jpg";
 import blueHaiwaii from "../img/drinks/blueHaiwaii.jpg";
 import hurricane from "../img/drinks/hurricane.jpg";
 import malibu from "../img/drinks/malibu.jpg";
@@ -54,10 +59,10 @@ import yellowfever from "../img/drinks/yellowfever.jpg";
          {
           //  foodId: 4,
            foodType: "fastfood",
-           foodName: "Bugger",
+           foodName: "Fried Chicken",
            foodDescription: "The discription of Spring Roll",
            foodPrice: "$10",
-           foodImage: bugger,
+           foodImage: frychicken,
            foodquantity: 0,
            price: 10,
          },
@@ -65,23 +70,14 @@ import yellowfever from "../img/drinks/yellowfever.jpg";
    {
     //  foodId: 11,
      foodType: "fastfood",
-     foodName: "Bugger",
+     foodName: "Taco",
      foodDescription: "The discription of Spring Roll",
      foodPrice: "$10",
-     foodImage: bugger,
+     foodImage: taco,
      foodquantity: 0,
      price: 10,
    },
-   {
-    //  foodId: 4,
-     foodType: "fastfood",
-     foodName: "Bugger",
-     foodDescription: "The discription of Spring Roll",
-     foodPrice: "$10",
-     foodImage: bugger,
-     foodquantity: 0,
-     price: 10,
-   },
+  
    {
     //  foodId: 5,
      foodType: "fastfood",
@@ -95,10 +91,10 @@ import yellowfever from "../img/drinks/yellowfever.jpg";
    {
     //  foodId: 6,
      foodType: "fastfood",
-     foodName: "Bugger",
+     foodName: "Pizza",
      foodDescription: "The discription of Spring Roll",
      foodPrice: "$10",
-     foodImage: bugger,
+     foodImage: pizza,
      foodquantity: 0,
      price: 10,
    },

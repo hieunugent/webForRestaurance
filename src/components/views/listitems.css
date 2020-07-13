@@ -1,0 +1,100 @@
+
+input[type=number]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.imageModify{
+    margin-left: auto;
+    margin-right:auto;
+    border-radius: .25rem;
+    width: 100%;
+    height: auto;
+    resize: both;
+}
+ordercss
+.required:after{
+    content: " *";
+    color: red;
+}
+.inputAmountCss{
+    margin-left: 1rem;
+   
+}
+.inputfieldcss{
+    width:25px;
+    border-radius: 1rem;
+}
+
+#decButton, #incButton {
+    border-radius: 1rem;
+}
+
+.addbtnCart{
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: auto;
+    margin-bottom: 2px;
+    width: 80%;
+    height: 60px;
+    color: azure;
+    background-color:hsl(0, 100%, 20%);
+    border-radius: .7rem;
+}
+.addbtnCart:hover{
+     color: hsl(0, 100%, 40%);
+     background-color:azure;
+}
+.cancelbtn{
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: auto;
+    margin-bottom: 2px;
+    width: 80%;
+    height: 60px;
+    color:hsl(0, 100%, 20%);
+    background-color: white;
+    border-radius: .7rem;
+
+}
+.cancelbtn:hover{
+      color: azure;
+      background-color:hsl(0, 100%, 40%);
+}
+.inner-title-section{
+    height: 50px;
+    padding-bottom: 0px;
+    /* background-color: aqua; */
+}
+.titlesection{
+    padding-top: 100px; 
+    /* background-color: hsl(142, 95%, 24%); */
+    height: 100px;
+    
+}
+.section-food{
+   display: flex;
+   flex-wrap: wrap;
+   background-position-y: 120px;
+   
+    margin-left: "2rem";
+}
+section {
+    overflow-y: scroll;
+    scroll-behavior: smooth; 
+}
+.sectionTitle{
+    top:60px;
+    text-align: center;
+   
+
+}
+.itemFood{
+  width: 100%;
+}
+.section-food>.itemFood{
+    flex: 0 50%;
+}
+.outer-title-section{
+    height: 150px;
+}
