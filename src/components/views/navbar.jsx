@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -14,8 +14,15 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
 import PolymerIcon from '@material-ui/icons/Polymer';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import Slide from "@material-ui/core/Slide";
 
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import { Dialog } from '@material-ui/core';
+import OrderDetails from './receiptForm';
+import TotalAmount from './totalamountOrder';
+import "./main.css";
+
+
 const useStyles = makeStyles((theme) => ({
     root:{
       backgroundColor:"hsl(0, 100%, 20%)",
@@ -83,7 +90,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+const Transitioncard = React.forwardRef(function Transitioncard(props, ref) {
+  return <Slide direction="left" ref={ref} {...props} />;
+});
 export default function Navbar() {
+    
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -103,7 +114,7 @@ export default function Navbar() {
         setAnchorEl(null);
         handleMobileMenuClose();
     };
-
+   
     // const handleMobileMenuOpen = (event) => {
     //     setMobileMoreAnchorEl(event.currentTarget);
     // };
@@ -157,7 +168,14 @@ export default function Navbar() {
         </MenuItem>
       </Menu>
     );
-
+  const [openCart, setcartOpen] = useState(false);
+  const handleOpenCart = () => {
+    setcartOpen(true);
+  }
+  const handleCloseCart = () => {
+    setcartOpen(false);
+  };
+ 
     return (
       <div className={classes.grow}>
         <AppBar className={classes.root} position="fixed">
@@ -189,10 +207,17 @@ export default function Navbar() {
             </div> */}
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
-              <IconButton aria-label="show 4 new mails" color="inherit">
+              <IconButton aria-label="show 4 new mails" color="inherit" >
                 <Badge badgeContent={4} color="secondary">
                   <AddShoppingCartIcon />
                 </Badge>
+                {/* <SwipeableDrawer
+                    open={cartstate}
+                    onClose={toggerDrawer(false)}
+                    onOpen={toggerDrawer(true)}
+                    >
+                    {receipts }
+                </SwipeableDrawer> */}
               </IconButton>
            {/* account button later */}
               {/* <IconButton
@@ -207,11 +232,37 @@ export default function Navbar() {
               </IconButton> */}
             </div>
             <div className={classes.sectionMobile}>
-              <IconButton aria-label="show 4 new mails" color="inherit">
-                <Badge badgeContent={3} color="secondary">
-                  <AddShoppingCartIcon />
-                </Badge>
-              </IconButton>
+            <div>
+                <IconButton aria-label="show 4 new mails" color="inherit" onClick={handleOpenCart}>
+                  <Badge badgeContent={3} color="secondary"  >
+                    <AddShoppingCartIcon />
+                  </Badge>
+                </IconButton>
+                <div>
+                  <Dialog
+                    fullScreen
+                    open={openCart}
+                    onClose={handleCloseCart}
+                    TransitionComponent={Transitioncard}
+                  > 
+                       <OrderDetails/>
+                        <TotalAmount/>
+                       
+                       <div>
+                      <button className="makepaymentBtn" onClick={handleCloseCart}>
+                        Make Payment
+                       </button>
+                      <br />
+                      <button className="continueShopBtn" onClick={handleCloseCart}>
+                        Continues Shopping
+                       </button>
+                       </div>
+                  
+                  </Dialog>
+                </div>
+
+            </div>
+             
               {/* <IconButton
                 aria-label="show more"
                 aria-controls={mobileMenuId}
@@ -226,6 +277,11 @@ export default function Navbar() {
         </AppBar>
         {renderMobileMenu}
         {renderMenu}
+        
+        
+
       </div>
+    
+      
     );
 }

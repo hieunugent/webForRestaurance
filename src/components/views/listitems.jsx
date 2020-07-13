@@ -22,6 +22,7 @@ import { TextField } from '@material-ui/core';
 import Slide from "@material-ui/core/Slide";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import OrderOption from "./optionSeclectForm";
 import "./main.css";
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -79,14 +80,17 @@ const useStyles = makeStyles((theme) => ({
 const ListForms =(props)=>{
       const classes = useStyles();
       const [quantityOrder, setQuantity] = useState(1);
-
-
-
       const addValue=()=>{
-        setQuantity(quantityOrder+1);
+        if(quantityOrder<50){
+          setQuantity(quantityOrder + 1);
+
+        }
       }
       const minusValue=()=> {
-        setQuantity(quantityOrder - 1);
+        if(quantityOrder>1){
+          setQuantity(quantityOrder - 1);
+
+        }
       }
       const handleChange=()=> {
         setQuantity(quantityOrder);
@@ -159,7 +163,7 @@ const ListForms =(props)=>{
             open={open}
             onClose={handleClose}
             TransitionComponent={Transition}
-          >
+            >
             <AppBar className={classes.appBar}>
               <Toolbar>
                 <Button
@@ -186,7 +190,7 @@ const ListForms =(props)=>{
                 </div> */}
               </Toolbar>
             </AppBar>
-
+              
             <div>
               <img
                 className="imageModify"
@@ -211,9 +215,14 @@ const ListForms =(props)=>{
                       style={{ cursor: "pointer" }}
                     ></Typography>
                   </Grid>
-                </Grid>
+                  <Grid>
+                    <OrderOption/>
+                  </Grid>
 
-                <div>
+
+                </Grid>
+                
+                <div  >
                   <label htmlFor="quantity" className="required">
                     Quantity
                   </label>
@@ -221,8 +230,7 @@ const ListForms =(props)=>{
                   <div className="inputAmountCss">
                     <button id="decButton" onClick={minusValue}>
                       -
-                    </button>
-                   
+                    </button>      
                       <input
                         className="inputfieldcss"
                         type="number"
@@ -232,7 +240,6 @@ const ListForms =(props)=>{
                         value={quantityOrder}
                         onChange={handleChange}
                       />
-                
                     <button id="incButton" onClick={addValue}>
                       +
                     </button>
@@ -248,12 +255,6 @@ const ListForms =(props)=>{
               </button>
             </div>
 
-            {/* <ListItem button>
-              <ListItemText
-                primary="Default notification ringtone"
-                secondary="Tethys"
-              />
-            </ListItem> */}
           </Dialog>
         </div>
       </>
@@ -270,14 +271,14 @@ export default function listitems() {
     return(
       <>
         <section >
-        <div className="outer-title-section">
-          <div id="Dishes" className="titlesection">
-            <div className="inner-title-section">
+          <div className="outer-title-section">
+            <div id="Dishes" className="titlesection">
+              <div className="inner-title-section">
 
-            <h3 className="sectionTitle"> Main Dishes</h3>
+              <h3 className="sectionTitle"> Main Dishes</h3>
+              </div>
             </div>
           </div>
-        </div>
           
           <div  className="section-food"> 
             {listFood.filter(list => list.foodType === "dish").map((list, index) => {
@@ -326,8 +327,7 @@ export default function listitems() {
 
               </div>
             );
-          }
-          )}
+             })}
           </div>
 
           <div className="outer-title-section">
