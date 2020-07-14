@@ -10,7 +10,7 @@ export default function foodNav() {
         <nav role="navigation" className="main-list-nav">
           <ul className="item-menu-nav">
             <Link
-            //   className="item-list-nav"
+              className="item-list-nav"
               activeClass="active"
               to="Dishes"
               spy={true}
