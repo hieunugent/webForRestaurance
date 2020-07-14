@@ -147,7 +147,7 @@ export default function Navbar() {
         onClose={handleMobileMenuClose}
       >
         <MenuItem>
-          <IconButton aria-label="show 4 new mails" color="inherit">
+          <IconButton aria-label="shoppingCart" color="inherit">
             <Badge badgeContent={4} color="secondary">
               <AddShoppingCartIcon />
             </Badge>
