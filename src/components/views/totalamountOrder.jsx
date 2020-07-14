@@ -1,7 +1,6 @@
 import React from 'react'
 import { Grid, Paper } from '@material-ui/core'
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+
 
 
 

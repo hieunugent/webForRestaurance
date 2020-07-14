@@ -4,16 +4,16 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
+//import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
+//import MenuIcon from '@material-ui/icons/Menu';
+//import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
+//import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
 import PolymerIcon from '@material-ui/icons/Polymer';
-import MoreIcon from '@material-ui/icons/MoreVert';
+//import MoreIcon from '@material-ui/icons/MoreVert';
 import Slide from "@material-ui/core/Slide";
 
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
@@ -192,44 +192,38 @@ export default function Navbar() {
             <Typography className={classes.title} variant="h6" noWrap>
               Your Restaurant
             </Typography>
-            {/* <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                inputProps={{ "aria-label": "search" }}
-              />
-            </div> */}
+          
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
-              <IconButton aria-label="show 4 new mails" color="inherit" >
-                <Badge badgeContent={4} color="secondary">
+              <IconButton aria-label="show 4 new mails" color="inherit" onClick={handleOpenCart} >
+                <Badge badgeContent={4} color="secondary" >
                   <AddShoppingCartIcon />
                 </Badge>
-                {/* <SwipeableDrawer
-                    open={cartstate}
-                    onClose={toggerDrawer(false)}
-                    onOpen={toggerDrawer(true)}
-                    >
-                    {receipts }
-                </SwipeableDrawer> */}
               </IconButton>
-           {/* account button later */}
-              {/* <IconButton
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <AccountCircle /> 
-              </IconButton> */}
+              <div>
+                <Dialog
+                  fullScreen
+                  open={openCart}
+                  onClose={handleCloseCart}
+                  TransitionComponent={Transitioncard}
+                >
+                  <OrderDetails />
+                  <TotalAmount />
+
+                  <div>
+                    <button className="makepaymentBtn" onClick={handleCloseCart}>
+                      Make Payment
+                       </button>
+                    <br />
+                    <button className="continueShopBtn" onClick={handleCloseCart}>
+                      Continues Shopping
+                       </button>
+                  </div>
+
+                </Dialog>
+              </div>
+
+          
             </div>
             <div className={classes.sectionMobile}>
             <div>
@@ -262,16 +256,6 @@ export default function Navbar() {
                 </div>
 
             </div>
-             
-              {/* <IconButton
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
-                color="inherit"
-              >
-                <MoreIcon />
-              </IconButton> */}
             </div>
           </Toolbar>
         </AppBar>

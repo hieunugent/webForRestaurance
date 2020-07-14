@@ -90,12 +90,24 @@ const useStyles = makeStyles((theme) => ({
     
   
   },
+  sectionDesktop: {
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'flex',
+    },
+  },
+  sectionMobile: {
+    display: 'flex',
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
+  },
   
 }));
 
-
 const ListForms =(props)=>{
-      const classes = useStyles();
+
+  const classes = useStyles();
       const [quantityOrder, setQuantity] = useState(1);
       const addValue=()=>{
         if(quantityOrder<50){
@@ -114,7 +126,6 @@ const ListForms =(props)=>{
       }
       const [open, setOpen] = useState(false);
       const handleClickOpen = () => {
-        console.log("want to order");
         setOpen(true);
       };
 
@@ -124,19 +135,20 @@ const ListForms =(props)=>{
       
       const handleSubmit = (event)=>{
          setOpen(false);
-          console.log(event.target);
+        //  console.log(event.target);
 
       };
 
 
 
     return (
-      <>
+      <> 
+      {/* this section for mobile view */}
+      <div className={classes.sectionMobile}>
         {/* list food page */}
         <div onClick={handleClickOpen} className={classes.root}>
           <Paper  className={classes.paper} elevation={1}>
-            {/* <Grid container spacing={2}> */}
-              <Grid item className={classes.bottomLayer} justify="center" >
+              <Grid  item className={classes.bottomLayer} >
                 <ButtonBase className={classes.image}>
                   <figure className={classes.img}>
                     <img
@@ -185,21 +197,14 @@ const ListForms =(props)=>{
                 >
                   # {props.foodId}.{props.foodName}
                 </Typography>
-                {/* <div className={classes.closeDialogbtn}>
-                  <Button autoFocus color="inherit" onClick={handleClose}>
-                    <HighlightOffIcon />
-                  </Button>
-                </div> */}
               </Toolbar>
-            </AppBar>
-              
+            </AppBar>        
             <div>
               <img
                 className="imageModify"
                 src={props.foodImage}
                 alt="backgroundLogo"
-              />
-              
+              />      
             </div>
             <div className="ordercss">
               <Paper className={classes.paperorder}>
@@ -221,8 +226,6 @@ const ListForms =(props)=>{
                   <Grid>
                     <OrderOption/>
                   </Grid>
-
-
                 </Grid>
                 
                 <div  >
@@ -260,7 +263,140 @@ const ListForms =(props)=>{
 
           </Dialog>
         </div>
+      </div>
+    
+    
+    
+    
+    
+    
+    {/* this section for destop view */}
+
+
+    
+      <div className={classes.sectionDesktop}>
+        {/* list food page */}
+        <div onClick={handleClickOpen} className={classes.root}>
+          <Paper className={classes.paper} elevation={1}>
+            <Grid item className={classes.bottomLayer} >
+              <ButtonBase className={classes.image}>
+                <figure className={classes.img}>
+                  <img
+                    className={classes.img}
+                    alt="complex"
+                    src={props.foodImage}
+                  />
+                </figure>
+                <div className="price">
+                  {props.foodPrice}
+                </div>
+
+              </ButtonBase>
+              <Typography className={classes.namefood} gutterBottom variant="body1" align="center" display="inline" noWrap>
+                # {props.foodId}.{props.foodName}
+              </Typography>
+            </Grid>
+          </Paper>
+        </div>
+
+
+        {/* Order page */}
+        <div>
+          <Dialog
+            fullScreen
+            open={open}
+            onClose={handleClose}
+            TransitionComponent={Transition}
+          >
+            <AppBar className={classes.appBar}>
+              <Toolbar>
+                <Button
+                  edge="start"
+                  color="inherit"
+                  onClick={handleClose}
+                  aria-label="close"
+                >
+                  <ArrowBackIcon />
+                  back
+                </Button>
+                <Typography
+                  variant="h6"
+                  className={classes.title}
+                  name="foodName"
+                  value={props.foodName}
+                >
+                  # {props.foodId}.{props.foodName}
+                </Typography>
+              </Toolbar>
+            </AppBar>
+            <div>
+              <img
+                className="imageModify"
+                src={props.foodImage}
+                alt="backgroundLogo"
+              />
+            </div>
+            <div className="ordercss">
+              <Paper className={classes.paperorder}>
+                <Grid item xs container direction="column">
+                  <Grid item>
+                    <Typography variant="h2">{props.foodPrice}</Typography>
+                  </Grid>
+                  <Grid item xs>
+                    <Typography gutterBottom variant="subtitle1">
+                      {props.foodDescription}
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography
+                      variant="body2"
+                      style={{ cursor: "pointer" }}
+                    ></Typography>
+                  </Grid>
+                  <Grid>
+                    <OrderOption />
+                  </Grid>
+                </Grid>
+
+                <div  >
+                  <label htmlFor="quantity" className="required">
+                    Quantity
+                  </label>
+                  <br />
+                  <div className="inputAmountCss">
+                    <button id="decButton" onClick={minusValue}>
+                      -
+                    </button>
+                    <input
+                      className="inputfieldcss"
+                      type="number"
+                      name="quantity"
+                      step="1"
+                      min="1"
+                      value={quantityOrder}
+                      onChange={handleChange}
+                    />
+                    <button id="incButton" onClick={addValue}>
+                      +
+                    </button>
+                  </div>
+                </div>
+              </Paper>
+              <button className="addbtnCart" onClick={handleSubmit}>
+                Add to cart
+              </button>
+              <br />
+              <button className="cancelbtn" onClick={handleClose}>
+                Cancel
+              </button>
+            </div>
+
+          </Dialog>
+        </div>
+      </div>
+
       </>
+
     );
 }
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -270,9 +406,10 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 
 export default function listitems() {
-           
+
+
     return(
-      <>
+      <div >
         <section >
           <div className="outer-title-section">
             <div id="Dishes" className="titlesection">
@@ -368,7 +505,7 @@ export default function listitems() {
           </div>
 
         </section>
-    </>
+    </div>
         
         );
     }

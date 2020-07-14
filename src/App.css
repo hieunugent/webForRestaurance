@@ -57,3 +57,10 @@ body{
 #listitem{
   top: 120px;
 }
+#myFooter{
+  margin-top: 3rem;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: auto;
+  
+}
