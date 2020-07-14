@@ -165,7 +165,7 @@ import boba from "../img/drinks/boba.jpg";
    {
      //  foodId: 10,
      foodType: "drinks",
-     foodName: "offee",
+     foodName: "coffee",
      foodDescription: "The discription of Spring Roll",
      foodPrice: "$10",
      foodImage: coffee,

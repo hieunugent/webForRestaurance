@@ -5,7 +5,7 @@ import React from 'react'
 // import spicyl2 from '../img/JapaneseFood/TATSU-CHO-SPICY-2-small.jpg';
 
 // import { Badge } from '@material-ui/core';
-import "./optionSelectForm.css"
+import "../style/optionSelectForm.css";
 export default function optionSeclectForm() {
     return (
         <div>

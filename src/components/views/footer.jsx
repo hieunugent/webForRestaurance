@@ -3,7 +3,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import CopyrightIcon from '@material-ui/icons/Copyright';
-import "./main.css";
+import "../style/main.css";
 export default function footer() {
     return (
         <div className="footerIcon">

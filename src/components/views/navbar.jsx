@@ -20,7 +20,7 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { Dialog } from '@material-ui/core';
 import OrderDetails from './receiptForm';
 import TotalAmount from './totalamountOrder';
-import "./main.css";
+import "../style/main.css";
 
 
 const useStyles = makeStyles((theme) => ({

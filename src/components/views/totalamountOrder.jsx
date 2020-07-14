@@ -4,7 +4,7 @@ import { Grid, Paper } from '@material-ui/core'
 
 
 
-import "./main.css"
+import "../style/main.css";
 
 export default function receiptForm() {
 

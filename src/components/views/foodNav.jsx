@@ -1,5 +1,5 @@
 import React from 'react'
-import "./foodNav.css"
+import "../style/foodNav.css";
 
 
 export default function foodNav() {

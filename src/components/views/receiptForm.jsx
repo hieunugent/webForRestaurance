@@ -5,7 +5,7 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 
 
-import "./main.css"
+import "../style/main.css";
 
 export default function receiptForm() {
  

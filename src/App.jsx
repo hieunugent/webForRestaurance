@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import "./components/style/App.css";
 import NavBar from "./components/views/navbar.jsx";
 import Imageintro from './components/views/introImage';
 
