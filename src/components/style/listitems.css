@@ -12,7 +12,7 @@ input[type=number]::-webkit-inner-spin-button{
     height: auto;
     resize: both;
 }
-ordercss
+
 .required:after{
     content: " *";
     color: red;
@@ -67,16 +67,15 @@ ordercss
     /* background-color: aqua; */
 }
 .titlesection{
-    padding-top: 100px; 
-    /* background-color: hsl(142, 95%, 24%); */
-    height: 100px;
+    /* padding-top: 10px;  */
+      /* background-color:hsl(0, 100%, 40%); */
+    height: fit-content;
     
 }
 .section-food{
    display: flex;
    flex-wrap: wrap;
    background-position-y: 120px;
-   
     margin-left: "2rem";
 }
 section {
@@ -85,7 +84,7 @@ section {
     margin-bottom: auto;
 }
 .sectionTitle{
-    top:60px;
+    /* top:60px; */
     text-align: center;
    
 
@@ -97,5 +96,5 @@ section {
     flex: 0 50%;
 }
 .outer-title-section{
-    height: 150px;
+    height: fit-content;
 }

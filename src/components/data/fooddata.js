@@ -19,124 +19,125 @@ import boba from "../img/drinks/boba.jpg";
 
 
  const listFood = [
-         {
-          //  foodId: 1 , 
-           foodType:"dish",
-           foodName: "Spring Roll",
-           foodDescription: "The discription of Spring Roll",
-           foodPrice: "$10",
-           foodImage: springRoll,
-           foodquantity:0,
-           price: 10,
-         },
-
-         {
-          //  foodId: 2,
-           foodType: "dish",
-           foodName: "Egg Roll",
-           foodDescription: "The discription of Spring Roll",
-           foodPrice: "$10",
-           foodImage: eggRoll,
-           foodquantity: 0,
-           price: 10,
-         },
-         {
-          //  foodId: 3,
-           foodType: "fastfood",
-           foodName: "French Fries",
-           foodDescription: "The discription of Spring Roll",
-           foodPrice: "$10",
-           foodImage: frenchFries,
-           foodquantity: 0,
-           price: 10,
-         },
-         {
-          //  foodId: 4,
-           foodType: "dish",
-           foodName: "Pho",
-           foodDescription: "The discription of Spring Roll",
-           foodPrice: "$10",
-           foodImage: pho,
-           foodquantity: 0,
-           price: 10,
-         },
-         {
-          //  foodId: 4,
-           foodType: "fastfood",
-           foodName: "Fried Chicken",
-           foodDescription: "The discription of Spring Roll",
-           foodPrice: "$10",
-           foodImage: frychicken,
-           foodquantity: 0,
-           price: 10,
-         },
+   {
+     //  foodId: 1 ,
+     foodType: "dish",
+     foodName: "Spring Roll",
+     foodDescription: "The discription of Food",
+     foodPrice: "$10",
+     foodImage: springRoll,
+     foodOption:[{Onion: "no", spicy: "very spicy"}],
+     foodquantity: 0,
+     price: 10,
+   },
 
    {
-    //  foodId: 11,
+     //  foodId: 2,
+     foodType: "dish",
+     foodName: "Egg Roll",
+     foodDescription: "The discription of Food",
+     foodPrice: "$10",
+     foodImage: eggRoll,
+     foodquantity: 0,
+     price: 10,
+   },
+   {
+     //  foodId: 3,
+     foodType: "fastfood",
+     foodName: "French Fries",
+     foodDescription: "The discription of Food",
+     foodPrice: "$10",
+     foodImage: frenchFries,
+     foodquantity: 0,
+     price: 10,
+   },
+   {
+     //  foodId: 4,
+     foodType: "dish",
+     foodName: "Pho",
+     foodDescription: "The discription of Food",
+     foodPrice: "$10",
+     foodImage: pho,
+     foodquantity: 0,
+     price: 10,
+   },
+   {
+     //  foodId: 4,
+     foodType: "fastfood",
+     foodName: "Fried Chicken",
+     foodDescription: "The discription of Food",
+     foodPrice: "$10",
+     foodImage: frychicken,
+     foodquantity: 0,
+     price: 10,
+   },
+
+   {
+     //  foodId: 11,
      foodType: "fastfood",
      foodName: "Taco",
-     foodDescription: "The discription of Spring Roll",
+     foodDescription: "The discription of Food",
      foodPrice: "$10",
      foodImage: taco,
      foodquantity: 0,
      price: 10,
    },
-  
+
    {
-    //  foodId: 5,
+     //  foodId: 5,
      foodType: "fastfood",
      foodName: "Bugger",
-     foodDescription: "The discription of Spring Roll",
+     foodDescription: "The discription of Food",
      foodPrice: "$10",
      foodImage: bugger,
      foodquantity: 0,
      price: 10,
    },
    {
-    //  foodId: 6,
+     //  foodId: 6,
      foodType: "fastfood",
      foodName: "Pizza",
-     foodDescription: "The discription of Spring Roll",
+     foodDescription: "The discription of Food ",
      foodPrice: "$10",
      foodImage: pizza,
      foodquantity: 0,
      price: 10,
    },
    {
-    //  foodId: 7,
+     //  foodId: 7,
      foodType: "drinks",
      foodName: "Blue Haiwaii",
-     foodDescription: "The discription of Spring Roll",
+     foodDescription: "The discription of Drink",
      foodPrice: "$10",
      foodImage: blueHaiwaii,
      foodquantity: 0,
      price: 10,
    },
    {
-    //  foodId: 8,
+     //  foodId: 8,
      foodType: "drinks",
      foodName: "Huricane ",
-     foodDescription: "The discription of Spring Roll",
+     foodDescription: "The discription of Drink ",
      foodPrice: "$10",
      foodImage: hurricane,
      foodquantity: 0,
      price: 10,
    },
    {
-    //  foodId: 9,
+     //  foodId: 9,
      foodType: "drinks",
      foodName: "Malibu ",
-     foodDescription: "The discription of Spring Roll",
+     foodDescription: "The discription of Drink ",
      foodPrice: "$10",
      foodImage: malibu,
      foodquantity: 0,
      price: 10,
    },
    {
-    //  foodId: 10,
+     //  foodId: 10,
      foodType: "drinks",
      foodName: "Tropical Fruit",
-     foodDescription: "The discription of Spring Roll",
+     foodDescription: "The discription of Drink ",
      foodPrice: "$10",
      foodImage: yellowfever,
      foodquantity: 0,
@@ -146,7 +147,7 @@ import boba from "../img/drinks/boba.jpg";
      //  foodId: 10,
      foodType: "drinks",
      foodName: "Boba Tea",
-     foodDescription: "The discription of Spring Roll",
+     foodDescription: "The discription of Drink ",
      foodPrice: "$10",
      foodImage: boba,
      foodquantity: 0,
@@ -156,7 +157,7 @@ import boba from "../img/drinks/boba.jpg";
      //  foodId: 10,
      foodType: "drinks",
      foodName: "Soda Drinks",
-     foodDescription: "The discription of Spring Roll",
+     foodDescription: "The discription of Drink ",
      foodPrice: "$10",
      foodImage: soda,
      foodquantity: 0,
@@ -166,28 +167,12 @@ import boba from "../img/drinks/boba.jpg";
      //  foodId: 10,
      foodType: "drinks",
      foodName: "coffee",
-     foodDescription: "The discription of Spring Roll",
+     foodDescription: "The discription of  Drink",
      foodPrice: "$10",
      foodImage: coffee,
      foodquantity: 0,
      price: 10,
    },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-       ];
+ ];
 
        export default listFood;

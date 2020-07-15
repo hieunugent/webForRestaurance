@@ -33,9 +33,14 @@
     transform: rotate(360deg);
   }
 }
-.mainContent{
- 
+.backgroundImgae{
+  
+   background-image: url(../img/cubes.png);
+   background-repeat: repeat;
+  background-color: white;
+   
 }
+
 
 
 .navbarCss {

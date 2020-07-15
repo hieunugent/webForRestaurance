@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(1),
     margin: "auto",
-    marginBottom: "2px",
+    marginBottom: "10px",
     maxWidth: "100%",
     maxHeight: "auto", 
     color: "hsl(0, 87 %, 3 %)",
@@ -106,9 +106,49 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ListForms =(props)=>{
-
-  const classes = useStyles();
+  
+      const classes = useStyles();
       const [quantityOrder, setQuantity] = useState(1);
+       const [open, setOpen] = useState(false);
+       const handleClickOpen = () => {
+         setOpen(true);
+       };
+
+       const handleClose = () => {
+         setOpen(false);
+       };
+      const [foodOrder, setNewOrder] = useState([]);
+      
+      const addnewFoodList = (newItem) => {
+        setNewOrder((prevList) => {
+          return [...prevList, newItem];
+        });
+      };
+      const initialfoodDefault = {
+        id: "",
+        foodName: `${props.foodName}`,
+        foodOption: "",
+        price: `${props.price}`,
+      };
+      const [fooditem, setfooditem] = useState(initialfoodDefault);
+
+        const saveOrder = () => {
+          addnewFoodList(fooditem);
+          setOpen(false);
+        
+        };
+        const handleChangeOrder = (event)=> {
+          const {name, value} = event.target;
+          setfooditem({...fooditem,[name]:value
+          });
+             
+        };
+         const addnewFood = (newFood) => {
+           
+         };
+         const handleSubmit = (event) => {
+           
+         };      
       const addValue=()=>{
         if(quantityOrder<50){
           setQuantity(quantityOrder + 1);
@@ -124,161 +164,16 @@ const ListForms =(props)=>{
       const handleChange=()=> {
         setQuantity(quantityOrder);
       }
-      const [open, setOpen] = useState(false);
-      const handleClickOpen = () => {
-        setOpen(true);
-      };
-
-      const handleClose = () => {
-        setOpen(false);
-      };
-      
-      const handleSubmit = (event)=>{
-         setOpen(false);
-        //  console.log(event.target);
-
-      };
-
-
-
+     
+   
     return (
-      <> 
-      {/* this section for mobile view */}
-      <div className={classes.sectionMobile}>
+      <>
+        {/* this section for mobile view */}
+
         {/* list food page */}
         <div onClick={handleClickOpen} className={classes.root}>
-          <Paper  className={classes.paper} elevation={1}>
-              <Grid  item className={classes.bottomLayer} >
-                <ButtonBase className={classes.image}>
-                  <figure className={classes.img}>
-                    <img
-                      className={classes.img}
-                      alt="complex"
-                      src={props.foodImage}
-                    />
-                </figure>
-                  <div className="price">
-                    {props.foodPrice}
-                  </div>
-              
-                </ButtonBase>
-                <Typography className={classes.namefood} gutterBottom variant="body1" align="center" display="inline" noWrap>
-                  # {props.foodId}.{props.foodName}
-                </Typography>
-              </Grid>
-          </Paper>
-        </div>
-
-
-        {/* Order page */}
-        <div>
-          <Dialog
-            fullScreen
-            open={open}
-            onClose={handleClose}
-            TransitionComponent={Transition}
-            >
-            <AppBar className={classes.appBar}>
-              <Toolbar>
-                <Button
-                  edge="start"
-                  color="inherit"
-                  onClick={handleClose}
-                  aria-label="close"
-                >
-                  <ArrowBackIcon />
-                  back
-                </Button>
-                <Typography
-                  variant="h6"
-                  className={classes.title}
-                  name="foodName"
-                  value={props.foodName}
-                >
-                  # {props.foodId}.{props.foodName}
-                </Typography>
-              </Toolbar>
-            </AppBar>        
-            <div>
-              <img
-                className="imageModify"
-                src={props.foodImage}
-                alt="backgroundLogo"
-              />      
-            </div>
-            <div className="ordercss">
-              <Paper className={classes.paperorder}>
-                <Grid item xs container direction="column">
-                  <Grid item>
-                    <Typography variant="h2">{props.foodPrice}</Typography>
-                  </Grid>
-                  <Grid item xs>
-                    <Typography gutterBottom variant="subtitle1">
-                      {props.foodDescription}
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <Typography
-                      variant="body2"
-                      style={{ cursor: "pointer" }}
-                    ></Typography>
-                  </Grid>
-                  <Grid>
-                    <OrderOption/>
-                  </Grid>
-                </Grid>
-                
-                <div  >
-                  <label htmlFor="quantity" className="required">
-                    Quantity
-                  </label>
-                  <br />
-                  <div className="inputAmountCss">
-                    <button id="decButton" onClick={minusValue}>
-                      -
-                    </button>      
-                      <input
-                        className="inputfieldcss"
-                        type="number"
-                        name="quantity"
-                        step="1"
-                        min="1"
-                        value={quantityOrder}
-                        onChange={handleChange}
-                      />
-                    <button id="incButton" onClick={addValue}>
-                      +
-                    </button>
-                  </div>
-                </div>
-              </Paper>
-              <button className="addbtnCart" onClick={handleSubmit}>
-                Add to cart
-              </button>
-              <br/>
-              <button className="cancelbtn" onClick={handleClose}>
-                Cancel
-              </button>
-            </div>
-
-          </Dialog>
-        </div>
-      </div>
-    
-    
-    
-    
-    
-    
-    {/* this section for destop view */}
-
-
-    
-      <div className={classes.sectionDesktop}>
-        {/* list food page */}
-        <div onClick={handleClickOpen} className={classes.root}>
-          <Paper className={classes.paper} elevation={1}>
-            <Grid item className={classes.bottomLayer} >
+          <Paper className={classes.paper} elevation={0}>
+            <Grid item className={classes.bottomLayer}>
               <ButtonBase className={classes.image}>
                 <figure className={classes.img}>
                   <img
@@ -287,18 +182,21 @@ const ListForms =(props)=>{
                     src={props.foodImage}
                   />
                 </figure>
-                <div className="price">
-                  {props.foodPrice}
-                </div>
-
+                <div className="price">{props.foodPrice}</div>
               </ButtonBase>
-              <Typography className={classes.namefood} gutterBottom variant="body1" align="center" display="inline" noWrap>
+              <Typography
+                className={classes.namefood}
+                gutterBottom
+                variant="body1"
+                align="center"
+                display="inline"
+                noWrap
+              >
                 # {props.foodId}.{props.foodName}
               </Typography>
             </Grid>
           </Paper>
         </div>
-
 
         {/* Order page */}
         <div>
@@ -340,7 +238,9 @@ const ListForms =(props)=>{
               <Paper className={classes.paperorder}>
                 <Grid item xs container direction="column">
                   <Grid item>
-                    <Typography variant="h2">{props.foodPrice}</Typography>
+                    <Typography variant="h2" name="price">
+                      {props.foodPrice}
+                    </Typography>
                   </Grid>
                   <Grid item xs>
                     <Typography gutterBottom variant="subtitle1">
@@ -358,7 +258,7 @@ const ListForms =(props)=>{
                   </Grid>
                 </Grid>
 
-                <div  >
+                <div>
                   <label htmlFor="quantity" className="required">
                     Quantity
                   </label>
@@ -382,7 +282,11 @@ const ListForms =(props)=>{
                   </div>
                 </div>
               </Paper>
-              <button className="addbtnCart" onClick={handleSubmit}>
+              <button
+                className="addbtnCart"
+                onClick={saveOrder}
+                onChange={handleChangeOrder}
+              >
                 Add to cart
               </button>
               <br />
@@ -390,124 +294,122 @@ const ListForms =(props)=>{
                 Cancel
               </button>
             </div>
-
           </Dialog>
         </div>
-      </div>
-
       </>
-
     );
 }
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
-
-
-
+    
 export default function listitems() {
 
 
-    return(
-      <div >
-        <section >
-          <div className="outer-title-section">
-            <div id="Dishes" className="titlesection">
-              <div className="inner-title-section">
-
-              <h3 className="sectionTitle"> Main Dishes</h3>
-              </div>
-            </div>
-          </div>
-          
-          <div  className="section-food"> 
-            {listFood.filter(list => list.foodType === "dish").map((list, index) => {
-              return (
-                <div key={`${index}-${list.foodName}`} className="itemFood" >
-                  <ListForms
-                    id={index}
-                    value={list}
-                    foodName={list.foodName}
-                    foodDescription={list.foodDescription}
-                    foodId={list.foodId}
-                    foodPrice={list.foodPrice}
-                    foodImage={list.foodImage}
-                    onClick={onclick}
-                  />
-
+    return (
+      <div>
+        <section>
+          <section id="Dishes">
+            <div className="outer-title-section">
+              <div className="titlesection">
+                <div className="inner-title-section">
+                  <h3 className="sectionTitle"> Main Dishes</h3>
                 </div>
-              );
-            }
-            )}
-          </div>
-         
-
-          <div className="outer-title-section">
-
-          <div id="FastFood" className="titlesection">
-          <div  className="inner-title-section">
-              <h3 className="sectionTitle"> Fast Food</h3>
-          </div> 
-            </div>
-          </div>
-
-         
-          <div  className="section-food">
-          
-          {listFood.filter(list => list.foodType === "fastfood").map((list, index) => {
-            return (
-              <div key={`${index}-${list.foodName}`} className="itemFood" >
-                <ListForms
-                  id={index}
-                  value={list}
-                  foodName={list.foodName}
-                  foodDescription={list.foodDescription}
-                  foodId={list.foodId}
-                  foodPrice={list.foodPrice}
-                  foodImage={list.foodImage}
-                  onClick={onclick}
-                />
-
-              </div>
-            );
-          }
-              )}
-            </div> 
-
-          <div className="outer-title-section">
-
-            <div id="Drinks" className="titlesection">
-              <div className="inner-title-section">
-                <h3 className="sectionTitle"> Drinks Options</h3>
               </div>
             </div>
-          </div>
 
-          <div className="section-food">
+            <div className="section-food">
+              {listFood
+                .filter((list) => list.foodType === "dish")
+                .map((list, index) => {
+                  return (
+                    <div key={`${index}-${list.foodName}`} className="itemFood">
+                      <ListForms
+                        id={index}
+                        value={list}
+                        foodName={list.foodName}
+                        price={list.price}
+                        foodOption={list.foodOption}
+                        foodDescription={list.foodDescription}
+                        foodId={list.foodId}
+                        foodPrice={list.foodPrice}
+                        foodImage={list.foodImage}
+                        onClick={onclick}
+                      />
+                    </div>
+                  );
+                })}
+            </div>
+          </section>
 
-            {listFood.filter(list => list.foodType === "drinks").map((list, index) => {
-              return (
-                <div key={`${index}-${list.foodName}`} className="itemFood">
-                  <ListForms
-                    id={index}
-                    value={list}
-                    foodName={list.foodName}
-                    foodDescription={list.foodDescription}
-                    foodId={list.foodId}
-                    foodPrice={list.foodPrice}
-                    foodImage={list.foodImage}
-                    onClick={onclick}
-                  />
-
+          <section id="FastFood">
+            <div className="outer-title-section">
+              <div className="titlesection">
+                <div className="inner-title-section">
+                  <h3 className="sectionTitle"> Appetizers</h3>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            </div>
 
+            <div className="section-food">
+              {listFood
+                .filter((list) => list.foodType === "fastfood")
+                .map((list, index) => {
+                  return (
+                    <div key={`${index}-${list.foodName}`} className="itemFood">
+                      <ListForms
+                        id={index}
+                        value={list}
+                        foodName={list.foodName}
+                        foodDescription={list.foodDescription}
+                        foodId={list.foodId}
+                        foodPrice={list.foodPrice}
+                        foodImage={list.foodImage}
+                        price={list.price}
+                        foodOption={list.foodOption}
+                        onClick={onclick}
+                      />
+                    </div>
+                  );
+                })}
+            </div>
+          </section>
+
+          <section id="Drinks">
+            <div className="outer-title-section">
+              <div className="titlesection">
+                <div className="inner-title-section">
+                  <h3 className="sectionTitle"> Drinks Options</h3>
+                </div>
+              </div>
+            </div>
+
+            <div className="section-food">
+              {listFood
+                .filter((list) => list.foodType === "drinks")
+                .map((list, index) => {
+                  return (
+                    <div key={`${index}-${list.foodName}`} className="itemFood">
+                      <ListForms
+                        id={index}
+                        value={list}
+                        foodName={list.foodName}
+                        foodDescription={list.foodDescription}
+                        foodId={list.foodId}
+                        foodPrice={list.foodPrice}
+                        foodImage={list.foodImage}
+                        price={list.price}
+                        foodOption={list.foodOption}
+                        onClick={onclick}
+                      />
+                    </div>
+                  );
+                })}
+            </div>
+          </section>
         </section>
-    </div>
-        
-        );
+      </div>
+    );
     }
     
 

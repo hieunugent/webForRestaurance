@@ -1,6 +1,6 @@
 .main-list-nav{
     display:inline;
-    
+   
     
 }
 .section-nav-food{ 
@@ -10,62 +10,68 @@
 .item-menu-nav, .item-list-nav{
     display: block;
     list-style: none;
-    height: 50px;
+    height: auto;
     margin: 0;
     padding: 0;
     line-height: normal;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+   
     
     
+}
+.item-list-nav{
+  
+    height:fit-content;
+
 }
 
 .item-menu-nav{
     display: flex;
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 0px;
+    padding-bottom: 3px;
+    width: 90%;
     position: relative; 
     overflow: auto;
     background-color: white;
-  
+    align-items: center;
+    border-bottom: 3px solid hsla(0, 1%, 29%, 0.285); 
 
 }
 
 .item-anchor-nav{
 
     text-decoration: none;
+    margin-left: 5px;
     color:  hsl(0, 86%, 5%);
     display: block;
     text-align: center;
+    min-width: 5rem;
     font-size: 20px;
     border-bottom: 3px solid transparent;
-    padding: 14px 16px;
-    
+    padding: 0 12px;
+  
 
 }
-.item-anchor-nav:hover{
+/* .item-anchor-nav:hover{
 
     border-bottom: 3px solid hsl(0, 100%, 20%);
     transition: border-bottom 1s;
     transition-duration: 1s;
-}
-
-
-/* .item-anchor-nav.item-anchor-nav-underline::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: var(--border-size);
-   border-bottom: 3px solid transparent;
-    
-    transition: tranform 300ms ease-in-out;
-    transform: scaleX(0);
-
-}
-.item-anchor-nav.item-anchor-nav-underline:hover::before ,
-item-anchor-nav.item-anchor-nav-underline:focus::before{
-    border-bottom:  3px solid red;
-    transform: scaleX(1);
 } */
+/* .item-anchor-nav > .active{
+    border-bottom: 3px solid hsl(0, 100%, 20%);
+    transition: border-bottom 1s;
+    transition-duration: 1s;
+} */
+
+.item-menu-nav > .active{
+    border-bottom: 3px solid hsl(0, 100%, 20%);
+    transition: border-bottom   1s smooth;
+    transition-duration: .5s;
+}
+
+html{
+    scroll-behavior: smooth;
+}

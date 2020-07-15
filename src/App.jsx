@@ -20,22 +20,22 @@ function App() {
       <div className="navbarCss">
         <NavBar />
       </div>
-      <div className="mainContent">
-        <div id="back-to-top">
-          <Imageintro />
+      <div className="backgroundImgae">
+        <div className="mainContent">
+          <div id="back-to-top">
+            <Imageintro />
+          </div>
+          <div id="navbar">
+            <FoodNav />
+          </div>
+          <div id="listitem">
+            <ListItems />
+          </div>
         </div>
-        <div id="navbar">
-          <FoodNav />
-        </div>
-        <div id="listitem" >
-          <ListItems />
+        <div id="myFooter">
+          <Footer />
         </div>
       </div>
-      <div id="myFooter">
-        <Footer/>
-      </div>
-      
-     
     </>
   );
 }

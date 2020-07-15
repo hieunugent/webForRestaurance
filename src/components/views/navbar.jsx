@@ -228,7 +228,7 @@ export default function Navbar() {
             <div className={classes.sectionMobile}>
             <div>
                 <IconButton aria-label="show 4 new mails" color="inherit" onClick={handleOpenCart}>
-                  <Badge badgeContent={3} color="secondary"  >
+                  <Badge badgeContent={2} color="secondary"  >
                     <AddShoppingCartIcon />
                   </Badge>
                 </IconButton>
