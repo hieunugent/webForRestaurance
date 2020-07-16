@@ -18,9 +18,9 @@ export default function foodNav() {
               offset={-130}
               duration={2}
             >
-              <a href="#Dishes" className="item-anchor-nav  ">
+              <div href="#Dishes" className="item-anchor-nav  ">
                 Dishes
-              </a>
+              </div>
             </Link>
 
             <Link
@@ -32,9 +32,9 @@ export default function foodNav() {
               offset={-120}
               duration={2}
             >
-              <a href="#FastFood" className="item-anchor-nav">
+              <div href="#FastFood" className="item-anchor-nav">
                 Appetizers
-              </a>
+              </div>
             </Link>
 
             <Link
@@ -46,9 +46,9 @@ export default function foodNav() {
               offset={-120}
               duration={2}
             >
-              <a href="#Drinks" className="item-anchor-nav ">
+              <div href="#Drinks" className="item-anchor-nav ">
                 Drinks
-              </a>
+              </div>
             </Link>
           </ul>
         </nav>

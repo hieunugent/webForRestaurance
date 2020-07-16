@@ -13,7 +13,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 
 import Slide from "@material-ui/core/Slide";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import OrderOption from "./optionSeclectForm";
+import OptionSelectionForm from "./optionSeclectForm";
 import "../style/main.css";
 import "../style/listitems.css";
 import "../style/cart.css";
@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   paperorder: {
+    display:"block",
     padding: theme.spacing(2),
     margin: "auto",
     marginBottom: 0,
@@ -199,7 +200,7 @@ const ListForms =(props)=>{
         </div>
 
         {/* Order page */}
-        <div>
+        <div className="dialog-section">
           <Dialog
             fullScreen
             open={open}
@@ -235,7 +236,7 @@ const ListForms =(props)=>{
               />
             </div>
             <div className="ordercss">
-              <Paper className={classes.paperorder}>
+              <Paper className={classes.paperorder} elevation={0}>
                 <Grid item xs container direction="column">
                   <Grid item>
                     <Typography variant="h2" name="price">
@@ -253,8 +254,12 @@ const ListForms =(props)=>{
                       style={{ cursor: "pointer" }}
                     ></Typography>
                   </Grid>
-                  <Grid>
-                    <OrderOption />
+                  <Grid className="OptionSelectForm" >
+                    
+
+                    <OptionSelectionForm  foodOption={props.foodOption}/>
+                   
+                    
                   </Grid>
                 </Grid>
 

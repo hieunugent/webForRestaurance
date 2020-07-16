@@ -98,3 +98,11 @@ section {
 .outer-title-section{
     height: fit-content;
 }
+.dialog-section{
+    position: absolute;
+}
+.OptionSelectForm{
+    position: sticky;
+    /* background-color: red; */
+    max-width: 100%;
+}

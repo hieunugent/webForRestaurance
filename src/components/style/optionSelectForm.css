@@ -81,3 +81,57 @@ figure {
 .small-6 {
     width: calc(50% - 1.3888888889rem);
 }
+.hasPrice{
+    position: absolute;
+    display: flex;
+    top: 0;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: #e90800;
+    color: #fff;
+    font-size: 1.25rem;
+    align-items: center;
+    justify-content: center;
+}
+.section-option{
+    display: inline;
+}
+.itemOption, .itemDetail{
+    display: block;
+}
+
+.itemOption{
+  position: relative;
+  display: flex;
+  flex-wrap: row nowrap;
+  overflow-x: auto;
+  margin-left:5%;
+  margin-right: auto;
+  /* background-color: aqua; */
+  width: 90%;
+  max-width: 100%;
+  text-decoration: none;
+  margin-block-end: 1rem;
+  margin-block-start: 1rem;
+  padding-left: 1rem;
+
+}
+.itemDetail{
+    padding-top: 1rem;
+    
+}
+.item-node{
+    display: block;
+    padding-left: 0;
+  
+}
+.outer-title-this-oder{
+   display: flex;
+   flex-wrap: wrap;
+   background-position-y: 120px;
+   margin-left: 1rem;
+   width: fit-content;
+   /* background-color: yellow; */
+}

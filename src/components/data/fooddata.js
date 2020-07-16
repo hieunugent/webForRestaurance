@@ -18,6 +18,80 @@ import coffee from "../img/drinks/coffee.jpg";
 import boba from "../img/drinks/boba.jpg";
 
 
+//option food link
+
+import NoOnion from "../img/JapaneseFood/onionNo.jpg"
+import onionSm from "../img/JapaneseFood/onionSm.jpg"
+import onionLg from "../img/JapaneseFood/oninonLg.jpg"
+import garlicSm from "../img/JapaneseFood/garlicSm.jpg"
+import garlicMd from "../img/JapaneseFood/garlicMd.jpg"
+import garlicLg from "../img/JapaneseFood/garlicLg.jpg"
+
+import spicy1 from "../img/JapaneseFood/spicy1.jpg"
+import spicy2 from "../img/JapaneseFood/spicy2.jpg"
+import spicy3 from "../img/JapaneseFood/spicy3.jpg"
+const optionList=[
+  {
+    optionTitle: "Onion Choice",
+    optionKind:"Onion",
+    freeitem:true,
+    optionDetail:[
+      {
+        optionImage: NoOnion,
+        optionName: "No Onion",
+      },
+      {
+        optionImage: onionSm,
+        optionName: "very little",
+      }, 
+      {
+        optionImage: onionLg,
+        optionName: "a Lot Onion",
+      },
+    ],
+  },
+  {
+    optionTitle: "Garlic Choice",
+    optionKind: "Garlic",
+    freeitem: true,
+    optionDetail: [
+      {
+        optionImage: garlicSm,
+        optionName: "Small Amount",
+      },
+      {
+        optionImage: garlicMd,
+        optionName: "Medium Amount",
+      },
+      {
+        optionImage: garlicLg,
+        optionName: "Large Amount",
+      },
+    ],
+  },
+  {
+    optionTitle: "Spicy Choice",
+    optionKind: "Spicy",
+    freeitem: true,
+    optionDetail: [
+      {
+        optionImage: spicy1,
+        optionName: "mild",
+      },
+      {
+        optionImage: spicy2,
+        optionName: "spicy",
+      },
+      {
+        optionImage: spicy3,
+        optionName: "Very spicy",
+      },
+    ],
+  },
+
+]
+
+
  const listFood = [
    {
      //  foodId: 1 ,
@@ -26,7 +100,7 @@ import boba from "../img/drinks/boba.jpg";
      foodDescription: "The discription of Food",
      foodPrice: "$10",
      foodImage: springRoll,
-     foodOption:[{Onion: "no", spicy: "very spicy"}],
+     foodOption:["Onion","Garlic","Spicy"],
      foodquantity: 0,
      price: 10,
    },
@@ -176,3 +250,4 @@ import boba from "../img/drinks/boba.jpg";
  ];
 
        export default listFood;
+       export {optionList};
