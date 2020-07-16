@@ -10,7 +10,7 @@ import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-
+import{Link} from "react-scroll";
 import Slide from "@material-ui/core/Slide";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import OptionSelectionForm from "./optionSeclectForm";
@@ -344,6 +344,9 @@ export default function listitems() {
                       foodOption={list.foodOption}
                       onClick={onclick}
                     />
+                  
+
+                   
                   </div>
                 );
               })}
@@ -382,6 +385,7 @@ export default function listitems() {
                         foodImage={list.foodImage}
                         onClick={onclick}
                       />
+                      
                     </div>
                   );
                 })}
@@ -420,6 +424,7 @@ export default function listitems() {
                           foodImage={list.foodImage}
                           onClick={onclick}
                         />
+                        
                       </div>
                     );
                   })}
@@ -430,6 +435,7 @@ export default function listitems() {
        
 
           <section id="Drinks">
+         
             <div className="outer-title-section">
               <div className="titlesection">
                 <div className="inner-title-section">
@@ -458,6 +464,7 @@ export default function listitems() {
                         foodOption={list.foodOption}
                         onClick={onclick}
                       />
+                      
                     </div>
                   );
                 })}

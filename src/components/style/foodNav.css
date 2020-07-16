@@ -60,16 +60,18 @@
     transition: border-bottom 1s;
     transition-duration: 1s;
 } */
-/* .item-anchor-nav > .active{
-    border-bottom: 3px solid hsl(0, 100%, 20%);
-    transition: border-bottom 1s;
-    transition-duration: 1s;
-} */
+.item-list-nav > .active{
+ overflow-x: scroll;
+  visibility: visible;
+   
+}
 
 .item-menu-nav > .active{
     border-bottom: 3px solid hsl(0, 100%, 20%);
-    transition: border-bottom   1s smooth;
+    transition: border-bottom  1s smooth;
     transition-duration: .5s;
+    
+    
 }
 
 html{

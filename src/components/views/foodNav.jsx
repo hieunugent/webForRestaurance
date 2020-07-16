@@ -20,7 +20,7 @@ export default function foodNav() {
               offset={-120}
               duration={2}
             >
-              <div href="#FastFood" className="item-anchor-nav">
+              <div  className="item-anchor-nav">
                 Appetizers
               </div>
             </Link>
@@ -33,11 +33,23 @@ export default function foodNav() {
               offset={-130}
               duration={2}
             >
-              <div href="#Dishes" className="item-anchor-nav  ">
+              <div href="#Dishes" className="item-anchor-nav">
                 Dishes
               </div>
             </Link>
-
+            <Link
+              className="item-list-nav"
+              activeClass="active"
+              to="Noodle"
+              spy={true}
+              smooth={true}
+              offset={-130}
+              duration={2}
+            >
+              <div href="#Noodle" className="item-anchor-nav  ">
+                Noodles
+              </div>
+            </Link>
            
 
             <Link
@@ -46,7 +58,7 @@ export default function foodNav() {
               to="Drinks"
               spy={true}
               smooth={true}
-              offset={-120}
+              offset={-130}
               duration={2}
             >
               <div href="#Drinks" className="item-anchor-nav ">
