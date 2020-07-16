@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
         display: "block",
         width: theme.spacing(16),
         height: "auto",
-        backgroundColor: "red",
+        backgroundColor: "white",
 
     },
     img: {
@@ -54,6 +54,10 @@ const useStyles = makeStyles((theme) => ({
         maxHeight: "100px",
         backgroundColor: "white",
         alignItems: "center",
+        opacity:0.5,
+        '&:hover':{
+            opacity:1,
+        }
 
 
     },
@@ -125,14 +129,14 @@ const OptionForm=(props)=> {
 }
 
 
-export default function optionSeclectForm() {
+export default function optionSeclectForm(option) {
     return (
         <>
 
             <section id="Onion">
                 <div className="section-option">
                     {optionList
-                        .filter((list) => list.optionKind === "Onion")
+                        .filter((list) => (list.optionKind === "Onion" && option.foodType ==="Noodle" ))
                         .map((list, index) => {
                             return (
                                 <div key={`${index}`} >
@@ -159,12 +163,83 @@ export default function optionSeclectForm() {
                                             );
 
                                         })}  </ul>
-
                                 </div>
                             );
                         })}
                 </div>
             </section>
+            <section id="Onion">
+                <div className="section-option">
+                    {optionList
+                        .filter((list) => (list.optionKind === "Garlic" && option.foodType === "Noodle"))
+                        .map((list, index) => {
+                            return (
+                                <div key={`${index}`} >
+                                    <div className="outer-title-this-oder" >
+                                        <div className="">
+                                            <div className="">
+                                                <h3 className="sectionTitle" value={list.optionTitle}>{list.optionTitle}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul className="itemOption">
+                                        {list.optionDetail.map((item, index) => {
+                                            return (
+                                                <li key={`${index}-${item.optionName}`} className="itemDetail" >
+                                                    <OptionForm
+                                                        id={index}
+                                                        value={item}
+                                                        optionName={item.optionName}
+                                                        optionImage={item.optionImage}
+                                                        freeitem={list.freeitem}
+                                                        onClick={onclick}
+                                                    />
+                                                </li>
+                                            );
+
+                                        })}  </ul>
+                                </div>
+                            );
+                        })}
+                </div>
+            </section>
+            <section id="Onion">
+                <div className="section-option">
+                    {optionList
+                        .filter((list) => (list.optionKind === "Spicy" && option.foodType === "Noodle"))
+                        .map((list, index) => {
+                            return (
+                                <div key={`${index}`} >
+                                    <div className="outer-title-this-oder" >
+                                        <div className="">
+                                            <div className="">
+                                                <h3 className="sectionTitle" value={list.optionTitle}>{list.optionTitle}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul className="itemOption">
+                                        {list.optionDetail.map((item, index) => {
+                                            return (
+                                                <li key={`${index}-${item.optionName}`} className="itemDetail" >
+                                                    <OptionForm
+                                                        id={index}
+                                                        value={item}
+                                                        optionName={item.optionName}
+                                                        optionImage={item.optionImage}
+                                                        freeitem={list.freeitem}
+                                                        onClick={onclick}
+                                                    />
+                                                </li>
+                                            );
+
+                                        })}  </ul>
+                                </div>
+                            );
+                        })}
+                </div>
+            </section>
+
+
         </>
     );
 }

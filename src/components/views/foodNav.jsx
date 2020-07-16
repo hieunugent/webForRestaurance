@@ -9,19 +9,7 @@ export default function foodNav() {
       <div>
         <nav role="navigation" className="main-list-nav">
           <ul className="item-menu-nav">
-            <Link
-              className="item-list-nav"
-              activeClass="active"
-              to="Dishes"
-              spy={true}
-              smooth={true}
-              offset={-130}
-              duration={2}
-            >
-              <div href="#Dishes" className="item-anchor-nav  ">
-                Dishes
-              </div>
-            </Link>
+
 
             <Link
               className="item-list-nav"
@@ -36,6 +24,21 @@ export default function foodNav() {
                 Appetizers
               </div>
             </Link>
+            <Link
+              className="item-list-nav"
+              activeClass="active"
+              to="Dishes"
+              spy={true}
+              smooth={true}
+              offset={-130}
+              duration={2}
+            >
+              <div href="#Dishes" className="item-anchor-nav  ">
+                Dishes
+              </div>
+            </Link>
+
+           
 
             <Link
               className="item-list-nav"

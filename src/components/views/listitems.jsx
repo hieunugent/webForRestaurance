@@ -257,7 +257,7 @@ const ListForms =(props)=>{
                   <Grid className="OptionSelectForm" >
                     
 
-                    <OptionSelectionForm  foodOption={props.foodOption}/>
+                    <OptionSelectionForm foodType={props.foodType}/>
                    
                     
                   </Grid>
@@ -314,6 +314,46 @@ export default function listitems() {
     return (
       <div>
         <section>
+
+        <section id="FastFood">
+          <div className="outer-title-section">
+            <div className="titlesection">
+              <div className="inner-title-section">
+                <h3 className="sectionTitle"> Appetizers</h3>
+              </div>
+            </div>
+          </div>
+
+          <div className="section-food">
+            {listFood
+              .filter((list) => list.foodType === "fastfood")
+              .map((list, index) => {
+                return (
+                  <div key={`${index}-${list.foodName}`} className="itemFood">
+                    <ListForms
+                      id={index}
+                      value={list}
+                      foodName={list.foodName}
+                      foodType={list.foodType}
+
+                      foodDescription={list.foodDescription}
+                      foodId={list.foodId}
+                      foodPrice={list.foodPrice}
+                      foodImage={list.foodImage}
+                      price={list.price}
+                      foodOption={list.foodOption}
+                      onClick={onclick}
+                    />
+                  </div>
+                );
+              })}
+          </div>
+        </section>
+
+
+
+        
+
           <section id="Dishes">
             <div className="outer-title-section">
               <div className="titlesection">
@@ -334,6 +374,7 @@ export default function listitems() {
                         value={list}
                         foodName={list.foodName}
                         price={list.price}
+                        foodType={list.foodType}
                         foodOption={list.foodOption}
                         foodDescription={list.foodDescription}
                         foodId={list.foodId}
@@ -346,39 +387,47 @@ export default function listitems() {
                 })}
             </div>
           </section>
+         
 
-          <section id="FastFood">
-            <div className="outer-title-section">
-              <div className="titlesection">
-                <div className="inner-title-section">
-                  <h3 className="sectionTitle"> Appetizers</h3>
+
+        
+            <section id="Noodle">
+              <div className="outer-title-section">
+                <div className="titlesection">
+                  <div className="inner-title-section">
+                    <h3 className="sectionTitle">Noodle</h3>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="section-food">
-              {listFood
-                .filter((list) => list.foodType === "fastfood")
-                .map((list, index) => {
-                  return (
-                    <div key={`${index}-${list.foodName}`} className="itemFood">
-                      <ListForms
-                        id={index}
-                        value={list}
-                        foodName={list.foodName}
-                        foodDescription={list.foodDescription}
-                        foodId={list.foodId}
-                        foodPrice={list.foodPrice}
-                        foodImage={list.foodImage}
-                        price={list.price}
-                        foodOption={list.foodOption}
-                        onClick={onclick}
-                      />
-                    </div>
-                  );
-                })}
-            </div>
-          </section>
+              <div className="section-food">
+                {listFood
+                  .filter((list) => list.foodType === "Noodle")
+                  .map((list, index) => {
+                    return (
+                      <div key={`${index}-${list.foodName}`} className="itemFood">
+                        <ListForms
+                          id={index}
+                          value={list}
+                          foodName={list.foodName}
+                          foodType={list.foodType}
+
+                          price={list.price}
+                          foodOption={list.foodOption}
+                          foodDescription={list.foodDescription}
+                          foodId={list.foodId}
+                          foodPrice={list.foodPrice}
+                          foodImage={list.foodImage}
+                          onClick={onclick}
+                        />
+                      </div>
+                    );
+                  })}
+              </div>
+            </section>
+      
+
+       
 
           <section id="Drinks">
             <div className="outer-title-section">
@@ -399,6 +448,8 @@ export default function listitems() {
                         id={index}
                         value={list}
                         foodName={list.foodName}
+                        foodType={list.foodType}
+
                         foodDescription={list.foodDescription}
                         foodId={list.foodId}
                         foodPrice={list.foodPrice}
@@ -413,6 +464,7 @@ export default function listitems() {
             </div>
           </section>
         </section>
+
       </div>
     );
     }

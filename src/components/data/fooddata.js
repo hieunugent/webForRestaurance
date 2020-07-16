@@ -4,6 +4,8 @@ import eggRoll from "../img/food/eggroll.jpg";
 import frenchFries from "../img/food/frenchFries.jpg";
 import pho from "../img/food/phopic1.jpg";
 import bugger from "../img/food/bugger.jpg";
+import phoGa from "../img/food/phoGa.jpg";
+import miht from "../img/food/mi.jpg";
 
 import pizza from "../img/food/pizza.jpg";
 
@@ -127,7 +129,7 @@ const optionList=[
    },
    {
      //  foodId: 4,
-     foodType: "dish",
+     foodType: "Noodle",
      foodName: "Pho",
      foodDescription: "The discription of Food",
      foodPrice: "$10",
@@ -135,6 +137,30 @@ const optionList=[
      foodquantity: 0,
      price: 10,
    },
+
+   {
+     //  foodId: 4,
+     foodType: "Noodle",
+     foodName: "Pho Ga",
+     foodDescription: "The discription of Food",
+     foodPrice: "$10",
+     foodImage: phoGa,
+     foodquantity: 0,
+     price: 10,
+   },
+   {
+     //  foodId: 4,
+     foodType: "Noodle",
+     foodName: "Mi Hoanh Thanh",
+     foodDescription: "The discription of Food",
+     foodPrice: "$10",
+     foodImage: miht,
+     foodquantity: 0,
+     price: 10,
+   },
+
+
+
    {
      //  foodId: 4,
      foodType: "fastfood",
