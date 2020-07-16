@@ -30,8 +30,8 @@ export default function foodNav() {
               to="Dishes"
               spy={true}
               smooth={true}
-              offset={-130}
-              duration={2}
+              offset={-120}
+              duration={20}
             >
               <div href="#Dishes" className="item-anchor-nav">
                 Dishes
@@ -43,8 +43,8 @@ export default function foodNav() {
               to="Noodle"
               spy={true}
               smooth={true}
-              offset={-130}
-              duration={2}
+              offset={-120}
+              duration={20}
             >
               <div href="#Noodle" className="item-anchor-nav  ">
                 Noodles
@@ -58,8 +58,8 @@ export default function foodNav() {
               to="Drinks"
               spy={true}
               smooth={true}
-              offset={-130}
-              duration={2}
+              offset={-120}
+              duration={20}
             >
               <div href="#Drinks" className="item-anchor-nav ">
                 Drinks
