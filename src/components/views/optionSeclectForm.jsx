@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import ButtonBase from "@material-ui/core/ButtonBase";
@@ -23,6 +23,8 @@ const useStyles = makeStyles((theme) => ({
         },
         alignItems: "center",
         marginRight: "1rem",
+       
+    
     },
     paper: {
         display:"flex",
@@ -44,6 +46,8 @@ const useStyles = makeStyles((theme) => ({
         width: theme.spacing(16),
         height: "auto",
         backgroundColor: "white",
+       
+
 
     },
     img: {
@@ -54,13 +58,12 @@ const useStyles = makeStyles((theme) => ({
         maxHeight: "100px",
         backgroundColor: "white",
         alignItems: "center",
-        opacity:0.5,
-        '&:hover':{
-            opacity:1,
-        }
+       
+
 
 
     },
+
     nameOption: {
         maxHeight: "10px",
         width: "100%",
@@ -86,41 +89,57 @@ const useStyles = makeStyles((theme) => ({
 }));
 const OptionForm=(props)=> {
     const classes = useStyles();
-    const isFree = ()=>{
-        if(!(props.freeitem)) {
+    const isFree = () => {
+        if (!(props.freeitem)) {
             return "hasPrice";
         }
     }
-    return (
-        <div className="items-node">
+    const [myclass, setNewClass] = useState('item-node itemDetail' );
+    const [ischoose, setchoosed] = useState(false);
 
-        <div className={classes.root}>
-            <Paper className={classes.paper} elevation={0}>
-                <Grid item className={classes.bottomLayer}>
-                    <ButtonBase className={classes.image}>
-                        <figure className={classes.img}>
-                            <img
-                                className={classes.img}
-                                alt="complex"
-                                src={props.optionImage}
-                            />
-                        </figure>
-                        <div className= {isFree()} value={props.price}>{props.price}</div>
-                    </ButtonBase>
-                    <Typography
-                        className={classes.nameOption}
-                        gutterBottom
-                        value={props.optionName}
-                        variant="body1"
-                        align="center"
-                       
-                        display="inline"
-                        noWrap
-                    >
-                        {props.optionName}
-                    </Typography>
-                </Grid>
-            </Paper>
+    const handleClickClass = ((event) => {
+        if(!ischoose){
+            setNewClass('item-node isActive');
+            setchoosed(true);
+        }else{
+            setNewClass('item-node itemDetail');
+            setchoosed(false);
+        }
+        event.preventDefault();
+
+
+    });
+    
+   
+
+    return (
+        <div className={myclass}>
+             <div className={classes.root}  onClick={handleClickClass}>
+                <Paper className={classes.paper}  elevation={0}>
+                    <Grid item>
+                        <ButtonBase className={classes.image}>
+                            <figure className={classes.img}>
+                                <img
+                                    className={classes.img}
+                                    alt="complex"
+                                    src={props.optionImage}
+                                />
+                            </figure>
+                            <div className= {isFree()} value={props.price}>{props.price}</div>
+                        </ButtonBase>
+                        <Typography
+                            className={classes.nameOption}
+                            gutterBottom
+                            value={props.optionName}
+                            variant="body1"
+                            align="center"
+                            display="inline"
+                            noWrap
+                        >
+                            {props.optionName}
+                        </Typography>
+                    </Grid>
+                </Paper>
             </div>
         </div>
 
@@ -130,11 +149,14 @@ const OptionForm=(props)=> {
 
 
 export default function optionSeclectForm(option) {
+
+
+    
     return (
         <>
 
             <section id="Onion">
-                <div className="section-option">
+                <div className="section-Onion ">
                     {optionList
                         .filter((list) => (list.optionKind === "Onion" && option.foodType ==="Noodle" ))
                         .map((list, index) => {
@@ -150,7 +172,7 @@ export default function optionSeclectForm(option) {
                                     <ul className="itemOption">
                                         {list.optionDetail.map((item, index) => {
                                             return (
-                                                <li key={`${index}-${item.optionName}`} className="itemDetail" >
+                                                <li key={`${index}-${item.optionName}`} className="item-node " >
                                                     <OptionForm
                                                         id={index}
                                                         value={item}
@@ -158,6 +180,7 @@ export default function optionSeclectForm(option) {
                                                         optionImage={item.optionImage}
                                                         freeitem={list.freeitem}
                                                         onClick={onclick}
+                                                        
                                                     />
                                                 </li>
                                             );
@@ -168,8 +191,8 @@ export default function optionSeclectForm(option) {
                         })}
                 </div>
             </section>
-            <section id="Onion">
-                <div className="section-option">
+            <section id="Garlic">
+                <div className="section-Garlic ">
                     {optionList
                         .filter((list) => (list.optionKind === "Garlic" && option.foodType === "Noodle"))
                         .map((list, index) => {
@@ -185,7 +208,7 @@ export default function optionSeclectForm(option) {
                                     <ul className="itemOption">
                                         {list.optionDetail.map((item, index) => {
                                             return (
-                                                <li key={`${index}-${item.optionName}`} className="itemDetail" >
+                                                <li key={`${index}-${item.optionName}`} className="item-node " >
                                                     <OptionForm
                                                         id={index}
                                                         value={item}
@@ -203,8 +226,8 @@ export default function optionSeclectForm(option) {
                         })}
                 </div>
             </section>
-            <section id="Onion">
-                <div className="section-option">
+            <section id="Spicy">
+                <div className="section-Spicy ">
                     {optionList
                         .filter((list) => (list.optionKind === "Spicy" && option.foodType === "Noodle"))
                         .map((list, index) => {
@@ -220,7 +243,7 @@ export default function optionSeclectForm(option) {
                                     <ul className="itemOption">
                                         {list.optionDetail.map((item, index) => {
                                             return (
-                                                <li key={`${index}-${item.optionName}`} className="itemDetail" >
+                                                <li key={`${index}-${item.optionName}`} className="item-node " >
                                                     <OptionForm
                                                         id={index}
                                                         value={item}

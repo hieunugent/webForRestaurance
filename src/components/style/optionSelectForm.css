@@ -116,17 +116,52 @@ figure {
   margin-block-end: 1rem;
   margin-block-start: 1rem;
   padding-left: 1rem;
+  border-bottom: 3px solid transparent;
 
 }
+
+
+/* 
+.itemDetail:active{
+     opacity: 1;
+     border-bottom: 3px solid  hsl(0, 60%, 34%);
+     transition: border-bottom  1s smooth;
+     transition-duration: .5s;
+} */
+
 .itemDetail{
     padding-top: 1rem;
+    opacity: 0.5;
+    
+
+}
+ /* .itemDetail:hover{     
+     border-bottom: 3px solid  hsl(0, 60%, 34%);
+     transition: border-bottom  1s smooth;
+     transition-duration: .5s;
+    
+} */
+.isActive  {
+     opacity: 1;
+     border-bottom: 3px solid  transparent;
+     transition: border-bottom  1s smooth;
+     transition-duration: .5s;
+    
+}
+.isActive:hover  {
+     opacity: 1;
+     border-bottom: 3px solid  hsl(0, 60%, 34%);
+     transition: border-bottom  1s smooth;
+     transition-duration: .5s;
     
 }
 .item-node{
+  
     display: block;
     padding-left: 0;
   
 }
+
 .outer-title-this-oder{
    display: flex;
    flex-wrap: wrap;
