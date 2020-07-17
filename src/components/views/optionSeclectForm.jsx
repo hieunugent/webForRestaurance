@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react'
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -46,9 +47,6 @@ const useStyles = makeStyles((theme) => ({
         width: theme.spacing(16),
         height: "auto",
         backgroundColor: "white",
-       
-
-
     },
     img: {
         margin: 0,
@@ -58,10 +56,6 @@ const useStyles = makeStyles((theme) => ({
         maxHeight: "100px",
         backgroundColor: "white",
         alignItems: "center",
-       
-
-
-
     },
 
     nameOption: {
@@ -94,27 +88,12 @@ const OptionForm=(props)=> {
             return "hasPrice";
         }
     }
-    const [myclass, setNewClass] = useState('item-node itemDetail' );
-    const [ischoose, setchoosed] = useState(false);
-
-    const handleClickClass = ((event) => {
-        if(!ischoose){
-            setNewClass('item-node isActive');
-            setchoosed(true);
-        }else{
-            setNewClass('item-node itemDetail');
-            setchoosed(false);
-        }
-        event.preventDefault();
-
-
-    });
+ 
     
-   
 
     return (
-        <div className={myclass}>
-             <div className={classes.root}  onClick={handleClickClass}>
+        <div key={props.id} >
+             <div className={classes.root}>
                 <Paper className={classes.paper}  elevation={0}>
                     <Grid item>
                         <ButtonBase className={classes.image}>
@@ -150,12 +129,22 @@ const OptionForm=(props)=> {
 
 export default function optionSeclectForm(option) {
 
+    const [currentOp, setOp] = useState('item-node');
+    const handleClick = (event) => {
+        setOp(event.target.optionName);
 
-    
+    };
+    const decValue = (event) => {
+        if (currentOp === event.target.optionName) {
+            return " item-node isNotActive";
+        }
+        return "item-node isActive";
+
+    };
     return (
-        <>
+        <div>
 
-            <section id="Onion">
+            <div id="Onion ">
                 <div className="section-Onion ">
                     {optionList
                         .filter((list) => (list.optionKind === "Onion" && option.foodType ==="Noodle" ))
@@ -169,17 +158,19 @@ export default function optionSeclectForm(option) {
                                             </div>
                                         </div>
                                     </div>
-                                    <ul className="itemOption">
+                                    <ul className="itemOption isActives">
                                         {list.optionDetail.map((item, index) => {
                                             return (
-                                                <li key={`${index}-${item.optionName}`} className="item-node " >
+                                                <li key={`${index}-${item.optionName}`}  >
                                                     <OptionForm
+                                                      
                                                         id={index}
                                                         value={item}
                                                         optionName={item.optionName}
                                                         optionImage={item.optionImage}
                                                         freeitem={list.freeitem}
-                                                        onClick={onclick}
+                                                        onClick={handleClick}
+                                                        className="isActive"
                                                         
                                                     />
                                                 </li>
@@ -190,8 +181,8 @@ export default function optionSeclectForm(option) {
                             );
                         })}
                 </div>
-            </section>
-            <section id="Garlic">
+            </div>
+            <div id="Garlic ">
                 <div className="section-Garlic ">
                     {optionList
                         .filter((list) => (list.optionKind === "Garlic" && option.foodType === "Noodle"))
@@ -205,7 +196,7 @@ export default function optionSeclectForm(option) {
                                             </div>
                                         </div>
                                     </div>
-                                    <ul className="itemOption">
+                                    <ul className="itemOption isActives">
                                         {list.optionDetail.map((item, index) => {
                                             return (
                                                 <li key={`${index}-${item.optionName}`} className="item-node " >
@@ -225,8 +216,8 @@ export default function optionSeclectForm(option) {
                             );
                         })}
                 </div>
-            </section>
-            <section id="Spicy">
+            </div>
+            <div id="Spicy">
                 <div className="section-Spicy ">
                     {optionList
                         .filter((list) => (list.optionKind === "Spicy" && option.foodType === "Noodle"))
@@ -240,7 +231,7 @@ export default function optionSeclectForm(option) {
                                             </div>
                                         </div>
                                     </div>
-                                    <ul className="itemOption">
+                                    <ul className="itemOption isActives">
                                         {list.optionDetail.map((item, index) => {
                                             return (
                                                 <li key={`${index}-${item.optionName}`} className="item-node " >
@@ -260,10 +251,10 @@ export default function optionSeclectForm(option) {
                             );
                         })}
                 </div>
-            </section>
+            </div>
 
 
-        </>
+        </div>
     );
 }
 

@@ -102,7 +102,7 @@ section {
     position: absolute;
 }
 .OptionSelectForm{
-    position: sticky;
+    position: relative;
     /* background-color: red; */
     max-width: 100%;
 }
