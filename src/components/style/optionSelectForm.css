@@ -102,7 +102,7 @@ figure {
     display: block;
 }
 
-.itemOption{
+.itemOption1{
   position: relative;
   display: flex;
   flex-wrap: row nowrap;
@@ -117,10 +117,39 @@ figure {
   margin-block-start: 1rem;
   padding-left: 1rem;
   border-bottom: 3px solid transparent;
-
 }
-
-
+.itemOption2{
+  position: relative;
+  display: flex;
+  flex-wrap: row nowrap;
+  overflow-x: auto;
+  margin-left:5%;
+  margin-right: auto;
+  /* background-color: aqua; */
+  width: 90%;
+  max-width: 100%;
+  text-decoration: none;
+  margin-block-end: 1rem;
+  margin-block-start: 1rem;
+  padding-left: 1rem;
+  border-bottom: 3px solid transparent;
+}
+.itemOption3{
+  position: relative;
+  display: flex;
+  flex-wrap: row nowrap;
+  overflow-x: auto;
+  margin-left:5%;
+  margin-right: auto;
+  /* background-color: aqua; */
+  width: 90%;
+  max-width: 100%;
+  text-decoration: none;
+  margin-block-end: 1rem;
+  margin-block-start: 1rem;
+  padding-left: 1rem;
+  border-bottom: 3px solid transparent;
+}
 /* 
 .itemDetail:active{
      opacity: 1;
@@ -142,34 +171,90 @@ figure {
     
 } */
    
-   .isActive{
+  
+   /* .isNotActive{
+     opacity: 1;
+     border-bottom: 3px solid  transparent;
+     transition: border-bottom  1s smooth;
+     transition-duration: .5s;
+   } */
+    .isActives{
      opacity: .5;
      border-bottom: 3px solid  transparent;
      transition: border-bottom  1s smooth;
      transition-duration: .5s;
    }
-   .isNotActive{
-        opacity: 1;
+   /* .isActives:hover{
+     opacity: .5;
+     border-bottom: 3px solid  hsl(0, 60%, 34%);
+     transition: border-bottom  1s smooth;
+     transition-duration: .5s;
+    
+    } */
+   .isActives.active{
+     opacity: 1;
+     border-bottom: 3px solid  hsl(0, 60%, 34%);
+     transition: border-bottom  1s smooth;
+     transition-duration: .5s;
+
+}
+  /* .isActives1{
+     opacity: .5;
      border-bottom: 3px solid  transparent;
      transition: border-bottom  1s smooth;
      transition-duration: .5s;
    }
-   .isActive:hover{
+   .isActives1:hover{
      opacity: 1;
      border-bottom: 3px solid  hsl(0, 60%, 34%);
      transition: border-bottom  1s smooth;
      transition-duration: .5s;
     
 }
-   .isActive:active{
+   .isActives1.active{
      opacity: 1;
      border-bottom: 3px solid  hsl(0, 60%, 34%);
      transition: border-bottom  1s smooth;
      transition-duration: .5s;
 
-}
+} */
 
 
+  /* .isActives2{
+     opacity: .5;
+     border-bottom: 3px solid  transparent;
+     transition: border-bottom  1s smooth;
+     transition-duration: .5s;
+   }
+   .isActives2:hover{
+     opacity: 1;
+     border-bottom: 3px solid  hsl(0, 60%, 34%);
+     transition: border-bottom  1s smooth;
+     transition-duration: .5s;
+    
+} 
+ .isActives2:hover{
+     opacity: 1;
+     border-bottom: 3px solid  hsl(0, 60%, 34%);
+     transition: border-bottom  1s smooth;
+     transition-duration: .5s;
+    
+}  */
+
+    /* li{
+    opacity: .5;
+     border-bottom: 3px solid  transparent;
+     transition: border-bottom  1s smooth;
+     transition-duration: .5s;
+    }
+
+    li.active{
+     opacity: 1;
+     border-bottom: 3px solid  hsl(0, 60%, 34%);
+     transition: border-bottom  1s smooth;
+     transition-duration: .5s;
+
+} */
 
 
 

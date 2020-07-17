@@ -56,7 +56,12 @@ const useStyles = makeStyles((theme) => ({
         maxHeight: "100px",
         backgroundColor: "white",
         alignItems: "center",
+
+       
+      
+        
     },
+ 
 
     nameOption: {
         maxHeight: "10px",
@@ -88,11 +93,20 @@ const OptionForm=(props)=> {
             return "hasPrice";
         }
     }
- 
-    
-
+    const [addClasses, setClasses] = useState('isActives');
+    const handleClick=()=> {
+        setClasses('isActives')
+        if(addClasses==='isActives'){
+            setClasses('isActives active')
+        }
+        else{
+            setClasses('isActives')
+        }
+      
+        console.log(addClasses +" "+ props.optionName);
+    }
     return (
-        <div key={props.id} >
+        <div key={props.id} className={addClasses} onClick={handleClick} >
              <div className={classes.root}>
                 <Paper className={classes.paper}  elevation={0}>
                     <Grid item>
@@ -129,22 +143,16 @@ const OptionForm=(props)=> {
 
 export default function optionSeclectForm(option) {
 
-    const [currentOp, setOp] = useState('item-node');
-    const handleClick = (event) => {
-        setOp(event.target.optionName);
 
-    };
-    const decValue = (event) => {
-        if (currentOp === event.target.optionName) {
-            return " item-node isNotActive";
-        }
-        return "item-node isActive";
-
-    };
+    const handleClick=(event)=> {
+        console.log(event.target.key);
+    }
+    
+   
     return (
         <div>
 
-            <div id="Onion ">
+            <Paper id="Onion " elevation={0}>
                 <div className="section-Onion ">
                     {optionList
                         .filter((list) => (list.optionKind === "Onion" && option.foodType ==="Noodle" ))
@@ -158,20 +166,17 @@ export default function optionSeclectForm(option) {
                                             </div>
                                         </div>
                                     </div>
-                                    <ul className="itemOption isActives">
+                                    <ul className="itemOption1 ">
                                         {list.optionDetail.map((item, index) => {
                                             return (
-                                                <li key={`${index}-${item.optionName}`}  >
-                                                    <OptionForm
-                                                      
+                                                <li key={`${index}-${item.optionName}`}  className="item-node" onClick={handleClick} >
+                                                    <OptionForm   
                                                         id={index}
                                                         value={item}
                                                         optionName={item.optionName}
                                                         optionImage={item.optionImage}
                                                         freeitem={list.freeitem}
-                                                        onClick={handleClick}
-                                                        className="isActive"
-                                                        
+                                            
                                                     />
                                                 </li>
                                             );
@@ -181,8 +186,8 @@ export default function optionSeclectForm(option) {
                             );
                         })}
                 </div>
-            </div>
-            <div id="Garlic ">
+            </Paper>
+            <Paper id="Garlic " elevation={0}>
                 <div className="section-Garlic ">
                     {optionList
                         .filter((list) => (list.optionKind === "Garlic" && option.foodType === "Noodle"))
@@ -196,10 +201,10 @@ export default function optionSeclectForm(option) {
                                             </div>
                                         </div>
                                     </div>
-                                    <ul className="itemOption isActives">
+                                    <ul className="itemOption2 ">
                                         {list.optionDetail.map((item, index) => {
                                             return (
-                                                <li key={`${index}-${item.optionName}`} className="item-node " >
+                                                <li key={`${index}-${item.optionName}`} className="item-node  " >
                                                     <OptionForm
                                                         id={index}
                                                         value={item}
@@ -216,8 +221,8 @@ export default function optionSeclectForm(option) {
                             );
                         })}
                 </div>
-            </div>
-            <div id="Spicy">
+            </Paper>
+            <Paper id="Spicy" elevation={0}>
                 <div className="section-Spicy ">
                     {optionList
                         .filter((list) => (list.optionKind === "Spicy" && option.foodType === "Noodle"))
@@ -231,7 +236,7 @@ export default function optionSeclectForm(option) {
                                             </div>
                                         </div>
                                     </div>
-                                    <ul className="itemOption isActives">
+                                    <ul className="itemOption3 ">
                                         {list.optionDetail.map((item, index) => {
                                             return (
                                                 <li key={`${index}-${item.optionName}`} className="item-node " >
@@ -251,7 +256,7 @@ export default function optionSeclectForm(option) {
                             );
                         })}
                 </div>
-            </div>
+            </Paper>
 
 
         </div>
