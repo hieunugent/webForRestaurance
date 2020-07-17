@@ -148,7 +148,7 @@ figure {
      transition: border-bottom  1s smooth;
      transition-duration: .5s;
    }
-   .isNOtActive{
+   .isNotActive{
         opacity: 1;
      border-bottom: 3px solid  transparent;
      transition: border-bottom  1s smooth;
