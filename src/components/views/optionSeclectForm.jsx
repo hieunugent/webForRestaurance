@@ -86,6 +86,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
 }));
+
 const OptionForm=(props)=> {
     const classes = useStyles();
     
@@ -96,11 +97,11 @@ const OptionForm=(props)=> {
     }
     const [addClasses, setClasses] = useState('isActives');
     const initialOpiton={
-        Onion: "No Onion",
+        Onion:  "No Onion",
         Garlic: "Small Amount",
-        Spicy:"mild",
+        Spicy:  "mild",
     }
-    const [optionList, setOptionList] = useState(initialOpiton);
+    const [optionsList, setOptionList] = useState(initialOpiton);
    
     const handleClick = (event)=> {
         
@@ -110,18 +111,26 @@ const OptionForm=(props)=> {
                 [props.optionKind] :props.optionName,
             };
         })
+
+     
         if(addClasses==='isActives'){
             setClasses('isActives active')
         }
         else{
             setClasses('isActives')
         }
-        console.log(addClasses +" "+ props.optionName);
+        // console.log(addClasses +" "+ props.optionName);       
     }
-    console.log(optionList);
+
+   
+
+
+
+    // console.log(`${props.id}-${props.optionKind}`);
+    // console.log(optionsList);
 
     return (
-        <div   key={props.id} className={addClasses}  onClick={handleClick}>
+        <div  id={`${props.id}-${props.optionKind}`} key={props.id} className={addClasses}  onClick={handleClick}>
              <div className={classes.root}>
                 <Paper className={classes.paper}  elevation={0}>
                     <Grid item>
@@ -153,15 +162,18 @@ const OptionForm=(props)=> {
 
 
     );
+   
 }
 
 
 export default function optionSeclectForm(option) {
 
+    
+ 
 
   
-//    / 
-//     const [addClasses, setClasses] = useState('isActives');
+// //    / 
+//     const [addClasses, setClasses] = useState('item-node isActives');
 //     const handleClick=()=> {
 
 //         setClasses('isActives')
@@ -174,13 +186,33 @@ export default function optionSeclectForm(option) {
 
 //         console.log(addClasses);
 //     }
-    // const [optionList, setOptionList] = useState({
+    // const initialOpiton = {
     //     Onion: "No Onion",
     //     Garlic: "Small Amount",
     //     Spicy: "mild",
-    // });
+    // }
+    // const [optionsList, setOptionList] = useState(initialOpiton);
 
+    // const handleClick=(props)=> {
+    //     console.log(props.optionKind);
+    //     setOptionList((prevItem) => {
+    //         return {
+    //             ...prevItem,
+    //             [props.optionKind]: props.optionName,
+    //         };
+    //     })
+    //     console.log("write");
+    //     if (addClasses === 'item-node isActives') {
+    //         setClasses('item-node isActives active')
+    //     }
+    //     else{
+    //         setClasses('item-node isActives')
+    //     }
 
+     
+    // }
+    // console.log(optionsList);
+    
     return (
         <div>
 
@@ -202,7 +234,7 @@ export default function optionSeclectForm(option) {
                                         {list.optionDetail.map((item, index) => {
                                             return (
                                                 <li key={`${index}-${item.optionName}`} 
-                                                    className="item-node "
+                                                    className="item-node"
                                                     >
                                                    
                                                         <OptionForm
@@ -211,8 +243,10 @@ export default function optionSeclectForm(option) {
                                                             optionName={item.optionName}
                                                             optionImage={item.optionImage}
                                                             freeitem={list.freeitem}
-                                                            optionKind={list.optionKind}
-                                                           
+                                                            optionKind={list.optionKind}  
+                                                        
+                                                            // oncontrol={handleClick}
+                                                            
                                                         />
                                                   
                                                     
