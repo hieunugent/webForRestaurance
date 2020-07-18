@@ -88,25 +88,40 @@ const useStyles = makeStyles((theme) => ({
 }));
 const OptionForm=(props)=> {
     const classes = useStyles();
+    
     const isFree = () => {
         if (!(props.freeitem)) {
             return "hasPrice";
         }
     }
     const [addClasses, setClasses] = useState('isActives');
-    const handleClick=()=> {
-        setClasses('isActives')
+    const initialOpiton={
+        Onion: "No Onion",
+        Garlic: "Small Amount",
+        Spicy:"mild",
+    }
+    const [optionList, setOptionList] = useState(initialOpiton);
+   
+    const handleClick = (event)=> {
+        
+        setOptionList((prevItem) => {
+            return {
+                ...prevItem,
+                [props.optionKind] :props.optionName,
+            };
+        })
         if(addClasses==='isActives'){
             setClasses('isActives active')
         }
         else{
             setClasses('isActives')
         }
-      
         console.log(addClasses +" "+ props.optionName);
     }
+    console.log(optionList);
+
     return (
-        <div key={props.id} className={addClasses} onClick={handleClick} >
+        <div   key={props.id} className={addClasses}  onClick={handleClick}>
              <div className={classes.root}>
                 <Paper className={classes.paper}  elevation={0}>
                     <Grid item>
@@ -144,11 +159,28 @@ const OptionForm=(props)=> {
 export default function optionSeclectForm(option) {
 
 
-    const handleClick=(event)=> {
-        console.log(event.target.key);
-    }
-    
-   
+  
+//    / 
+//     const [addClasses, setClasses] = useState('isActives');
+//     const handleClick=()=> {
+
+//         setClasses('isActives')
+//         if (addClasses ==='isActives'){
+//             setClasses('isActives active')
+//         }
+//         else{
+//             setClasses('isActives')
+//         }
+
+//         console.log(addClasses);
+//     }
+    // const [optionList, setOptionList] = useState({
+    //     Onion: "No Onion",
+    //     Garlic: "Small Amount",
+    //     Spicy: "mild",
+    // });
+
+
     return (
         <div>
 
@@ -166,18 +198,24 @@ export default function optionSeclectForm(option) {
                                             </div>
                                         </div>
                                     </div>
-                                    <ul className="itemOption1 ">
+                                    <ul className="itemOption1">
                                         {list.optionDetail.map((item, index) => {
                                             return (
-                                                <li key={`${index}-${item.optionName}`}  className="item-node" onClick={handleClick} >
-                                                    <OptionForm   
-                                                        id={index}
-                                                        value={item}
-                                                        optionName={item.optionName}
-                                                        optionImage={item.optionImage}
-                                                        freeitem={list.freeitem}
-                                            
-                                                    />
+                                                <li key={`${index}-${item.optionName}`} 
+                                                    className="item-node "
+                                                    >
+                                                   
+                                                        <OptionForm
+                                                            id={index}
+                                                            value={item}
+                                                            optionName={item.optionName}
+                                                            optionImage={item.optionImage}
+                                                            freeitem={list.freeitem}
+                                                            optionKind={list.optionKind}
+                                                           
+                                                        />
+                                                  
+                                                    
                                                 </li>
                                             );
 
@@ -211,6 +249,7 @@ export default function optionSeclectForm(option) {
                                                         optionName={item.optionName}
                                                         optionImage={item.optionImage}
                                                         freeitem={list.freeitem}
+                                                        optionKind={list.optionKind}
                                                         onClick={onclick}
                                                     />
                                                 </li>
@@ -246,6 +285,7 @@ export default function optionSeclectForm(option) {
                                                         optionName={item.optionName}
                                                         optionImage={item.optionImage}
                                                         freeitem={list.freeitem}
+                                                        optionKind={list.optionKind}
                                                         onClick={onclick}
                                                     />
                                                 </li>
