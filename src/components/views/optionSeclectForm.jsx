@@ -7,10 +7,6 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import {optionList} from "../data/fooddata"
 import "../style/main.css"
-// import spicyl1 from '../img/JapaneseFood/TATSU-CHO-SPICY-1-small.jpg';
-// import spicyl2 from '../img/JapaneseFood/TATSU-CHO-SPICY-2-small.jpg';
-
-// import { Badge } from '@material-ui/core';
 import "../style/optionSelectForm.css";
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -90,26 +86,14 @@ const useStyles = makeStyles((theme) => ({
 const OptionForm=(props)=> {
     const classes = useStyles();
     
-    console.log(props.optionKind);
-    console.log(props.OrderDetailList.Onion);
+    // console.log(props.optionKind);
+    // console.log(props.OrderDetailList.Onion);
     const isFree = () => {
         if (!(props.freeitem)) {
             return "hasPrice";
         }
     }
-    // const [addClasses, setClasses] = useState('');
-    // const initialOpiton={
-    //     Onion:  "No Onion",
-    //     Garlic: "Small Amount",
-    //     Spicy:  "mild",
-    // }
-    // const [optionsList, setOptionList] = useState(initialOpiton);
-    // if (props.OrderDetailList.Onion === props.optionName) {
-    //     setClasses('isActives active')
-    // }
-    // else {
-    //     setClasses('isActives')
-    // }
+
     const isCLasses =()=> {
             if(props.OrderDetailList.Onion===props.optionName){
                 return "isActives active";
@@ -129,36 +113,22 @@ const OptionForm=(props)=> {
     }
     const handleClick = (event)=> {
        
-        // setOptionList((prevItem) => {
-        //     return {
-        //         ...prevItem,
-        //         [props.optionKind] :props.optionName,
-        //     };
-        // })
+
         props.setOrderList((prevItem) => {
             return {
                 ...prevItem,
                 [props.optionKind]: props.optionName,
             };
         })
-    
-        // if(addClasses==='isActives'){
-        //     setClasses('isActives active')
-        // }
-        // else{
-        //     setClasses('isActives')
-        // }
-        // console.log( props.optionName);       
+       //pass value to parent
         props.handleClickother(props.optionName);
-
 
     }
     
        
 
 
-    // console.log(`${props.id}-${props.optionKind}`);
-    // console.log(optionsList);
+  
 
     return (
         <div  id={`${props.id}-${props.optionKind}`} key={props.id} className={isCLasses()}  onClick={handleClick}>
@@ -207,11 +177,11 @@ export default function optionSeclectForm(option) {
     const [addClasses, setClasses] = useState('isActives');
    
     const handleClick =(propsValue) => {
-             
+            
     }
    
   
-    console.log(OrderDetailList);
+    // console.log(OrderDetailList);
     
     return (
         <div>
