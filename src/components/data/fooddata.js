@@ -22,21 +22,21 @@ import boba from "../img/drinks/boba.jpg";
 
 //option food link
 
-import NoOnion from "../img/JapaneseFood/onionNo.jpg"
-import onionSm from "../img/JapaneseFood/onionSm.jpg"
-import onionLg from "../img/JapaneseFood/oninonLg.jpg"
-import garlicSm from "../img/JapaneseFood/garlicSm.jpg"
-import garlicMd from "../img/JapaneseFood/garlicMd.jpg"
-import garlicLg from "../img/JapaneseFood/garlicLg.jpg"
+import NoOnion from "../img/optionfood/onionNo.jpg"
+import onionSm from "../img/optionfood/onionSm.jpg"
+import onionLg from "../img/optionfood/oninonLg.jpg"
+import garlicSm from "../img/optionfood/garlicSm.jpg"
+import garlicMd from "../img/optionfood/garlicMd.jpg"
+import garlicLg from "../img/optionfood/garlicLg.jpg"
 
-import spicy1 from "../img/JapaneseFood/spicy1.jpg"
-import spicy2 from "../img/JapaneseFood/spicy2.jpg"
-import spicy3 from "../img/JapaneseFood/spicy3.jpg"
+import spicy1 from "../img/optionfood/spicy1.jpg"
+import spicy2 from "../img/optionfood/spicy2.jpg"
+import spicy3 from "../img/optionfood/spicy3.jpg"
 
-import beef0 from "../img/JapaneseFood/beef.jpg"
+import beef0 from "../img/optionfood/beef.jpg"
 
-import beef1 from "../img/JapaneseFood/beef1.jpg"
-import beef2 from "../img/JapaneseFood/beef2.jpg"
+import beef1 from "../img/optionfood/beef1.jpg"
+import beef2 from "../img/optionfood/beef2.jpg"
 const optionList=[
   {
     optionTitle: "Onion Choice",
