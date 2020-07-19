@@ -191,6 +191,7 @@ figure {
      transition-duration: .5s;
     
     } */
+    
    .isActives.active{
      opacity: 1;
      border-bottom: 3px solid  hsl(0, 60%, 34%);

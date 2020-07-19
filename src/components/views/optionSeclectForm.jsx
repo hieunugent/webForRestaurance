@@ -90,47 +90,78 @@ const useStyles = makeStyles((theme) => ({
 const OptionForm=(props)=> {
     const classes = useStyles();
     
+    console.log(props.optionKind);
+    console.log(props.OrderDetailList.Onion);
     const isFree = () => {
         if (!(props.freeitem)) {
             return "hasPrice";
         }
     }
-    const [addClasses, setClasses] = useState('isActives');
-    const initialOpiton={
-        Onion:  "No Onion",
-        Garlic: "Small Amount",
-        Spicy:  "mild",
+    // const [addClasses, setClasses] = useState('');
+    // const initialOpiton={
+    //     Onion:  "No Onion",
+    //     Garlic: "Small Amount",
+    //     Spicy:  "mild",
+    // }
+    // const [optionsList, setOptionList] = useState(initialOpiton);
+    // if (props.OrderDetailList.Onion === props.optionName) {
+    //     setClasses('isActives active')
+    // }
+    // else {
+    //     setClasses('isActives')
+    // }
+    const isCLasses =()=> {
+            if(props.OrderDetailList.Onion===props.optionName){
+                return "isActives active";
+            }
+            else if(props.OrderDetailList.Garlic===props.optionName){
+                return "isActives active";
+            }
+            else if (props.OrderDetailList.Spicy === props.optionName) {
+                return "isActives active";
+            }
+            else{
+                return "isActives"
+            }
+
+
+
     }
-    const [optionsList, setOptionList] = useState(initialOpiton);
-   
     const handleClick = (event)=> {
-        
-        setOptionList((prevItem) => {
+       
+        // setOptionList((prevItem) => {
+        //     return {
+        //         ...prevItem,
+        //         [props.optionKind] :props.optionName,
+        //     };
+        // })
+        props.setOrderList((prevItem) => {
             return {
                 ...prevItem,
-                [props.optionKind] :props.optionName,
+                [props.optionKind]: props.optionName,
             };
         })
+    
+        // if(addClasses==='isActives'){
+        //     setClasses('isActives active')
+        // }
+        // else{
+        //     setClasses('isActives')
+        // }
+        // console.log( props.optionName);       
+        props.handleClickother(props.optionName);
 
-     
-        if(addClasses==='isActives'){
-            setClasses('isActives active')
-        }
-        else{
-            setClasses('isActives')
-        }
-        // console.log(addClasses +" "+ props.optionName);       
+
     }
-
-   
-
+    
+       
 
 
     // console.log(`${props.id}-${props.optionKind}`);
     // console.log(optionsList);
 
     return (
-        <div  id={`${props.id}-${props.optionKind}`} key={props.id} className={addClasses}  onClick={handleClick}>
+        <div  id={`${props.id}-${props.optionKind}`} key={props.id} className={isCLasses()}  onClick={handleClick}>
              <div className={classes.root}>
                 <Paper className={classes.paper}  elevation={0}>
                     <Grid item>
@@ -167,51 +198,20 @@ const OptionForm=(props)=> {
 
 
 export default function optionSeclectForm(option) {
-
-    
- 
-
+    const initialOpiton = {
+        Onion: "very little",
+        Garlic: "Medium Amount",
+        Spicy: "spicy",
+    }
+    const [OrderDetailList, setOrderList] = useState(initialOpiton);
+    const [addClasses, setClasses] = useState('isActives');
+   
+    const handleClick =(propsValue) => {
+             
+    }
+   
   
-// //    / 
-//     const [addClasses, setClasses] = useState('item-node isActives');
-//     const handleClick=()=> {
-
-//         setClasses('isActives')
-//         if (addClasses ==='isActives'){
-//             setClasses('isActives active')
-//         }
-//         else{
-//             setClasses('isActives')
-//         }
-
-//         console.log(addClasses);
-//     }
-    // const initialOpiton = {
-    //     Onion: "No Onion",
-    //     Garlic: "Small Amount",
-    //     Spicy: "mild",
-    // }
-    // const [optionsList, setOptionList] = useState(initialOpiton);
-
-    // const handleClick=(props)=> {
-    //     console.log(props.optionKind);
-    //     setOptionList((prevItem) => {
-    //         return {
-    //             ...prevItem,
-    //             [props.optionKind]: props.optionName,
-    //         };
-    //     })
-    //     console.log("write");
-    //     if (addClasses === 'item-node isActives') {
-    //         setClasses('item-node isActives active')
-    //     }
-    //     else{
-    //         setClasses('item-node isActives')
-    //     }
-
-     
-    // }
-    // console.log(optionsList);
+    console.log(OrderDetailList);
     
     return (
         <div>
@@ -234,7 +234,7 @@ export default function optionSeclectForm(option) {
                                         {list.optionDetail.map((item, index) => {
                                             return (
                                                 <li key={`${index}-${item.optionName}`} 
-                                                    className="item-node"
+                                                    className='item-node' 
                                                     >
                                                    
                                                         <OptionForm
@@ -244,10 +244,16 @@ export default function optionSeclectForm(option) {
                                                             optionImage={item.optionImage}
                                                             freeitem={list.freeitem}
                                                             optionKind={list.optionKind}  
-                                                        
-                                                            // oncontrol={handleClick}
+                                                            OrderDetailList={OrderDetailList}
+                                                            setOrderList={setOrderList}
+                                                            setClasses={setClasses}
+                                                            handleClickother={handleClick}
+                                                            addClasses={addClasses}
+                                                         
                                                             
-                                                        />
+                                                        >
+                    
+                                                        </OptionForm>
                                                   
                                                     
                                                 </li>
@@ -284,7 +290,12 @@ export default function optionSeclectForm(option) {
                                                         optionImage={item.optionImage}
                                                         freeitem={list.freeitem}
                                                         optionKind={list.optionKind}
-                                                        onClick={onclick}
+                                                        OrderDetailList={OrderDetailList}
+                                                        setOrderList={setOrderList}
+                                                        setClasses={setClasses}
+                                                        handleClickother={handleClick}
+                                                        addClasses={addClasses}
+                                                        // onClick={onclick}
                                                     />
                                                 </li>
                                             );
@@ -320,7 +331,13 @@ export default function optionSeclectForm(option) {
                                                         optionImage={item.optionImage}
                                                         freeitem={list.freeitem}
                                                         optionKind={list.optionKind}
-                                                        onClick={onclick}
+                                                        OrderDetailList={OrderDetailList}
+                                                        setOrderList={setOrderList}
+                                                        setClasses={setClasses}
+                                                        handleClickother={handleClick}
+
+                                                        addClasses={addClasses}
+                                                        // onClick={onclick}
                                                     />
                                                 </li>
                                             );
