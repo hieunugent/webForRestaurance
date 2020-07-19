@@ -32,6 +32,11 @@ import garlicLg from "../img/JapaneseFood/garlicLg.jpg"
 import spicy1 from "../img/JapaneseFood/spicy1.jpg"
 import spicy2 from "../img/JapaneseFood/spicy2.jpg"
 import spicy3 from "../img/JapaneseFood/spicy3.jpg"
+
+import beef0 from "../img/JapaneseFood/beef.jpg"
+
+import beef1 from "../img/JapaneseFood/beef1.jpg"
+import beef2 from "../img/JapaneseFood/beef2.jpg"
 const optionList=[
   {
     optionTitle: "Onion Choice",
@@ -90,7 +95,42 @@ const optionList=[
       },
     ],
   },
+  {
+    optionTitle: "Meat Choice",
+    optionKind: "Meat",
+   
+   
+    optionDetail: [
+      {
+        optionImage: beef0,
+        optionName: "No meat",
+        freeitem: true,
+        priceitem: 0,
+      },
 
+      {
+        optionImage: beef1,
+        optionName: "normal",
+        freeitem: true,
+        priceitem: 0,
+
+      },
+      {
+        optionImage: beef1,
+        optionName: "more protein",
+        freeitem: false,
+        priceitem: 2,
+
+      },
+      {
+        optionImage: beef2,
+        optionName: "build protein",
+        freeitem: false,
+        priceitem: 4,
+
+      },
+    ],
+  },
 ]
 
 

@@ -91,9 +91,13 @@ figure {
     border-radius: 20px;
     background: #e90800;
     color: #fff;
-    font-size: 1.25rem;
+    font-size: 1rem;
     align-items: center;
     justify-content: center;
+    
+}
+.hide{
+    display: none;
 }
 .section-option{
     display: inline;

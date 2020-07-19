@@ -92,6 +92,9 @@ const OptionForm=(props)=> {
         if (!(props.freeitem)) {
             return "hasPrice";
         }
+        else{
+            return "hide"
+        }
     }
 
     const isCLasses =()=> {
@@ -102,6 +105,9 @@ const OptionForm=(props)=> {
                 return "isActives active";
             }
             else if (props.OrderDetailList.Spicy === props.optionName) {
+                return "isActives active";
+            }
+            else if (props.OrderDetailList.Meat === props.optionName) {
                 return "isActives active";
             }
             else{
@@ -124,12 +130,8 @@ const OptionForm=(props)=> {
         props.handleClickother(props.optionName);
 
     }
-    
-       
-
 
   
-
     return (
         <div  id={`${props.id}-${props.optionKind}`} key={props.id} className={isCLasses()}  onClick={handleClick}>
              <div className={classes.root}>
@@ -143,7 +145,7 @@ const OptionForm=(props)=> {
                                     src={props.optionImage}
                                 />
                             </figure>
-                            <div className= {isFree()} value={props.price}>{props.price}</div>
+                            <div className= {isFree()} value={props.priceitem}>+ ${props.priceitem}</div>
                         </ButtonBase>
                         <Typography
                             className={classes.nameOption}
@@ -172,6 +174,7 @@ export default function optionSeclectForm(option) {
         Onion: "very little",
         Garlic: "Medium Amount",
         Spicy: "spicy",
+        Meat:"normal"
     }
     const [OrderDetailList, setOrderList] = useState(initialOpiton);
     const [addClasses, setClasses] = useState('isActives');
@@ -260,7 +263,7 @@ export default function optionSeclectForm(option) {
                                                         optionName={item.optionName}
                                                         optionImage={item.optionImage}
                                                         freeitem={list.freeitem}
-                                                        priceitem={list.priceitem}
+                                                        priceitem={item.priceitem}
                                                         optionKind={list.optionKind}
                                                         OrderDetailList={OrderDetailList}
                                                         setOrderList={setOrderList}
@@ -320,7 +323,48 @@ export default function optionSeclectForm(option) {
                         })}
                 </div>
             </Paper>
+            <Paper id="Meat" elevation={0}>
+                <div className="section-Meat ">
+                    {optionList
+                        .filter((list) => (list.optionKind === "Meat" && option.foodType === "Noodle" && option.foodName==="Pho"))
+                        .map((list, index) => {
+                            return (
+                                <div key={`${index}`} >
+                                    <div className="outer-title-this-oder" >
+                                        <div className="">
+                                            <div className="">
+                                                <h3 className="sectionTitle" value={list.optionTitle}>{list.optionTitle}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul className="itemOption3 ">
+                                        {list.optionDetail.map((item, index) => {
+                                            return (
+                                                <li key={`${index}-${item.optionName}`} className="item-node " >
+                                                    <OptionForm
+                                                        id={index}
+                                                        value={item}
+                                                        optionName={item.optionName}
+                                                        optionImage={item.optionImage}
+                                                        freeitem={item.freeitem}
+                                                        priceitem={item.priceitem}
+                                                        optionKind={list.optionKind}
+                                                        OrderDetailList={OrderDetailList}
+                                                        setOrderList={setOrderList}
+                                                        setClasses={setClasses}
+                                                        handleClickother={handleClick}
+                                                        addClasses={addClasses}
+                                                    // onClick={onclick}
+                                                    />
+                                                </li>
+                                            );
 
+                                        })}  </ul>
+                                </div>
+                            );
+                        })}
+                </div>
+            </Paper>
 
         </div>
     );

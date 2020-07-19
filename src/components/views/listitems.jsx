@@ -257,7 +257,7 @@ const ListForms =(props)=>{
                   <Grid className="OptionSelectForm" >
                     
 
-                    <OptionSelectionForm foodType={props.foodType}/>
+                    <OptionSelectionForm foodName={props.foodName} foodType={props.foodType}/>
                    
                     
                   </Grid>
@@ -455,7 +455,6 @@ export default function listitems() {
                         value={list}
                         foodName={list.foodName}
                         foodType={list.foodType}
-
                         foodDescription={list.foodDescription}
                         foodId={list.foodId}
                         foodPrice={list.foodPrice}
