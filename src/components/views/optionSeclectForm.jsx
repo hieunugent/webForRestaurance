@@ -213,6 +213,7 @@ export default function optionSeclectForm(option) {
                                                             optionName={item.optionName}
                                                             optionImage={item.optionImage}
                                                             freeitem={list.freeitem}
+                                                            priceitem={list.priceitem}
                                                             optionKind={list.optionKind}  
                                                             OrderDetailList={OrderDetailList}
                                                             setOrderList={setOrderList}
@@ -259,6 +260,7 @@ export default function optionSeclectForm(option) {
                                                         optionName={item.optionName}
                                                         optionImage={item.optionImage}
                                                         freeitem={list.freeitem}
+                                                        priceitem={list.priceitem}
                                                         optionKind={list.optionKind}
                                                         OrderDetailList={OrderDetailList}
                                                         setOrderList={setOrderList}
@@ -300,12 +302,12 @@ export default function optionSeclectForm(option) {
                                                         optionName={item.optionName}
                                                         optionImage={item.optionImage}
                                                         freeitem={list.freeitem}
+                                                        priceitem={list.priceitem}
                                                         optionKind={list.optionKind}
                                                         OrderDetailList={OrderDetailList}
                                                         setOrderList={setOrderList}
                                                         setClasses={setClasses}
                                                         handleClickother={handleClick}
-
                                                         addClasses={addClasses}
                                                         // onClick={onclick}
                                                     />

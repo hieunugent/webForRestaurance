@@ -37,7 +37,7 @@ export default function foodNav() {
                 Dishes
               </div>
             </Link>
-            <Link
+            {/* <Link
               className="item-list-nav"
               activeClass="active"
               to="Noodle"
@@ -50,7 +50,7 @@ export default function foodNav() {
                 Noodles
               </div>
             </Link>
-           
+            */}
 
             <Link
               className="item-list-nav"

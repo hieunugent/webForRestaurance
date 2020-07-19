@@ -326,7 +326,7 @@ export default function listitems() {
 
           <div className="section-food">
             {listFood
-              .filter((list) => list.foodType === "fastfood")
+              .filter((list) => list.foodType === "fastfood" )
               .map((list, index) => {
                 return (
                   <div key={`${index}-${list.foodName}`} className="itemFood">
@@ -368,7 +368,7 @@ export default function listitems() {
 
             <div className="section-food">
               {listFood
-                .filter((list) => list.foodType === "dish")
+                .filter((list) => list.foodType === "dish" || list.foodType === "Noodle")
                 .map((list, index) => {
                   return (
                     <div key={`${index}-${list.foodName}`} className="itemFood">
@@ -395,7 +395,7 @@ export default function listitems() {
 
 
         
-            <section id="Noodle">
+            {/* <section id="Noodle">
               <div className="outer-title-section">
                 <div className="titlesection">
                   <div className="inner-title-section">
@@ -429,7 +429,7 @@ export default function listitems() {
                     );
                   })}
               </div>
-            </section>
+            </section> */}
       
 
        
