@@ -170,13 +170,13 @@ const OptionForm=(props)=> {
 
 
 export default function optionSeclectForm(option) {
-    const initialOpiton = {
-        Onion: "very little",
-        Garlic: "Medium Amount",
-        Spicy: "spicy",
-        Meat:"normal"
-    }
-    const [OrderDetailList, setOrderList] = useState(initialOpiton);
+    // const initialOpiton = {
+    //     Onion: "very little",
+    //     Garlic: "Medium Amount",
+    //     Spicy: "spicy",
+    //     Meat:"normal"
+    // }
+    // const [OrderDetailList, setOrderList] = useState(initialOpiton);
     const [addClasses, setClasses] = useState('isActives');
    
     const handleClick =(propsValue) => {
@@ -218,8 +218,8 @@ export default function optionSeclectForm(option) {
                                                             freeitem={list.freeitem}
                                                             priceitem={list.priceitem}
                                                             optionKind={list.optionKind}  
-                                                            OrderDetailList={OrderDetailList}
-                                                            setOrderList={setOrderList}
+                                                            OrderDetailList={option.OrderDetailList}
+                                                            setOrderList={option.setOrderList}
                                                             setClasses={setClasses}
                                                             handleClickother={handleClick}
                                                             addClasses={addClasses}
@@ -265,8 +265,8 @@ export default function optionSeclectForm(option) {
                                                         freeitem={list.freeitem}
                                                         priceitem={item.priceitem}
                                                         optionKind={list.optionKind}
-                                                        OrderDetailList={OrderDetailList}
-                                                        setOrderList={setOrderList}
+                                                        OrderDetailList={option.OrderDetailList}
+                                                        setOrderList={option.setOrderList}
                                                         setClasses={setClasses}
                                                         handleClickother={handleClick}
                                                         addClasses={addClasses}
@@ -307,8 +307,8 @@ export default function optionSeclectForm(option) {
                                                         freeitem={list.freeitem}
                                                         priceitem={list.priceitem}
                                                         optionKind={list.optionKind}
-                                                        OrderDetailList={OrderDetailList}
-                                                        setOrderList={setOrderList}
+                                                        OrderDetailList={option.OrderDetailList}
+                                                        setOrderList={option.setOrderList}
                                                         setClasses={setClasses}
                                                         handleClickother={handleClick}
                                                         addClasses={addClasses}
@@ -349,8 +349,8 @@ export default function optionSeclectForm(option) {
                                                         freeitem={item.freeitem}
                                                         priceitem={item.priceitem}
                                                         optionKind={list.optionKind}
-                                                        OrderDetailList={OrderDetailList}
-                                                        setOrderList={setOrderList}
+                                                        OrderDetailList={option.OrderDetailList}
+                                                        setOrderList={option.setOrderList}
                                                         setClasses={setClasses}
                                                         handleClickother={handleClick}
                                                         addClasses={addClasses}

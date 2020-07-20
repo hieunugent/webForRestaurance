@@ -108,8 +108,8 @@ const useStyles = makeStyles((theme) => ({
 
 const ListForms =(props)=>{
   
-      const classes = useStyles();
-      const [quantityOrder, setQuantity] = useState(1);
+       const classes = useStyles();
+       const [quantityOrder, setQuantity] = useState(1);
        const [open, setOpen] = useState(false);
        const handleClickOpen = () => {
          setOpen(true);
@@ -118,32 +118,43 @@ const ListForms =(props)=>{
        const handleClose = () => {
          setOpen(false);
        };
-      const [foodOrder, setNewOrder] = useState([]);
-      
-      const addnewFoodList = (newItem) => {
-        setNewOrder((prevList) => {
-          return [...prevList, newItem];
-        });
-      };
-      const initialfoodDefault = {
-        id: "",
-        foodName: `${props.foodName}`,
-        foodOption: "",
-        price: `${props.price}`,
-      };
-      const [fooditem, setfooditem] = useState(initialfoodDefault);
+       const initialOpiton = {
+        Onion: "very little",
+        Garlic: "Medium Amount",
+        Spicy: "spicy",
+        Meat: "normal"
+       }
+       const [OrderDetailList, setOrderList] = useState(initialOpiton);
+       // console.log(OrderDetailList);
 
-        const saveOrder = () => {
-          addnewFoodList(fooditem);
+
+       const [foodOrder, setNewOrder] = useState([]);
+      
+  const addnewFoodList = (newItem) => {
+    setNewOrder(prevList => {
+      return [...prevList, newItem];
+    });
+  };
+          const initialfoodDefault = {
+          id: "",
+          foodName: `${props.foodName}`,
+          foodOption: "",
+          price: `${props.price}`,
+            };
+         const [fooditem, setfooditem] = useState(initialfoodDefault);
+
+         const saveOrder = (event) => {
+         
           setOpen(false);
-        
-        };
-        const handleChangeOrder = (event)=> {
-          const {name, value} = event.target;
-          setfooditem({...fooditem,[name]:value
+          setfooditem({
+            ...fooditem, 
+            foodOption: OrderDetailList
           });
-             
+           addnewFoodList(fooditem);
+         
         };
+ 
+        console.log(foodOrder);
          const addnewFood = (newFood) => {
            
          };
@@ -166,7 +177,6 @@ const ListForms =(props)=>{
         setQuantity(quantityOrder);
       }
      
-   
     return (
       <>
         {/* this section for mobile view */}
@@ -257,7 +267,7 @@ const ListForms =(props)=>{
                   <Grid className="OptionSelectForm" >
                     
 
-                    <OptionSelectionForm foodName={props.foodName} foodType={props.foodType}/>
+                    <OptionSelectionForm foodName={props.foodName} foodType={props.foodType} OrderDetailList={OrderDetailList} setOrderList={setOrderList}/>
                    
                     
                   </Grid>
@@ -289,8 +299,11 @@ const ListForms =(props)=>{
               </Paper>
               <button
                 className="addbtnCart"
+                ordername={props.foodName}
+                orderquantity={quantityOrder}
+                orderdetaillist={OrderDetailList}
                 onClick={saveOrder}
-                onChange={handleChangeOrder}
+                
               >
                 Add to cart
               </button>
@@ -335,7 +348,6 @@ export default function listitems() {
                       value={list}
                       foodName={list.foodName}
                       foodType={list.foodType}
-
                       foodDescription={list.foodDescription}
                       foodId={list.foodId}
                       foodPrice={list.foodPrice}
@@ -343,20 +355,13 @@ export default function listitems() {
                       price={list.price}
                       foodOption={list.foodOption}
                       onClick={onclick}
-                    />
-                  
-
-                   
+                    /> 
                   </div>
                 );
               })}
           </div>
         </section>
-
-
-
         
-
           <section id="Dishes">
             <div className="outer-title-section">
               <div className="titlesection">
@@ -392,47 +397,6 @@ export default function listitems() {
             </div>
           </section>
          
-
-
-        
-            {/* <section id="Noodle">
-              <div className="outer-title-section">
-                <div className="titlesection">
-                  <div className="inner-title-section">
-                    <h3 className="sectionTitle">Noodle</h3>
-                  </div>
-                </div>
-              </div>
-
-              <div className="section-food">
-                {listFood
-                  .filter((list) => list.foodType === "Noodle")
-                  .map((list, index) => {
-                    return (
-                      <div key={`${index}-${list.foodName}`} className="itemFood">
-                        <ListForms
-                          id={index}
-                          value={list}
-                          foodName={list.foodName}
-                          foodType={list.foodType}
-
-                          price={list.price}
-                          foodOption={list.foodOption}
-                          foodDescription={list.foodDescription}
-                          foodId={list.foodId}
-                          foodPrice={list.foodPrice}
-                          foodImage={list.foodImage}
-                          onClick={onclick}
-                        />
-                        
-                      </div>
-                    );
-                  })}
-              </div>
-            </section> */}
-      
-
-       
 
           <section id="Drinks">
          

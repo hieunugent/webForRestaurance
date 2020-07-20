@@ -28,7 +28,6 @@ import onionLg from "../img/optionfood/oninonLg.jpg"
 import garlicSm from "../img/optionfood/garlicSm.jpg"
 import garlicMd from "../img/optionfood/garlicMd.jpg"
 import garlicLg from "../img/optionfood/garlicLg.jpg"
-
 import spicy1 from "../img/optionfood/spicy1.jpg"
 import spicy2 from "../img/optionfood/spicy2.jpg"
 import spicy3 from "../img/optionfood/spicy3.jpg"
