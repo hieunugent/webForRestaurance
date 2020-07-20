@@ -87,7 +87,7 @@ const OptionForm=(props)=> {
     const classes = useStyles();
     
     // console.log(props.optionKind);
-    // console.log(props.OrderDetailList.Onion);
+    //console.log(props.OrderDetailList.Onion);
     const isFree = () => {
         if (!(props.freeitem)) {
             return "hasPrice";
@@ -118,19 +118,28 @@ const OptionForm=(props)=> {
 
     }
     const handleClick = (event)=> {
-       
+        // props.setOrderList((prevItem) => {
+        //     return {
+        //         ...prevItem,
+        //         [props.optionKind]: props.optionName,
+        //     };
+        // })
 
-        props.setOrderList((prevItem) => {
-            return {
-                ...prevItem,
-                [props.optionKind]: props.optionName,
-            };
-        })
+         props.setfooditem({
+              ...props.fooditem,
+             foodOption: prevItem => {
+                 return {
+               ...prevItem,
+                [props.optionKind]: props.optionName
+              };
+              },
+            });
+
+
        //pass value to parent
-        props.handleClickother(props.optionName);
-
+      
     }
-
+    
   
     return (
         <div  id={`${props.id}-${props.optionKind}`} key={props.id} className={isCLasses()}  onClick={handleClick}>
@@ -179,12 +188,18 @@ export default function optionSeclectForm(option) {
     // const [OrderDetailList, setOrderList] = useState(initialOpiton);
     const [addClasses, setClasses] = useState('isActives');
    
-    const handleClick =(propsValue) => {
-            
+    const handleClick =() => {
+         
+    //     //     option.setfooditem({
+    //     //     ...option.fooditem,
+    //     //         foodOption: option.OrderDetailList
+    //     // });
+    //     console.log(option.OrderDetailList);
+
     }
    
   
-    // console.log(OrderDetailList);
+  
     
     return (
         <div>
@@ -223,6 +238,8 @@ export default function optionSeclectForm(option) {
                                                             setClasses={setClasses}
                                                             handleClickother={handleClick}
                                                             addClasses={addClasses}
+                                                            fooditem={option.fooditem}
+                                                            setfooditem={option.setfooditem}
                                                          
                                                             
                                                         >
@@ -270,6 +287,8 @@ export default function optionSeclectForm(option) {
                                                         setClasses={setClasses}
                                                         handleClickother={handleClick}
                                                         addClasses={addClasses}
+                                                        fooditem={option.fooditem}
+                                                        setfooditem={option.setfooditem}
                                                         // onClick={onclick}
                                                     />
                                                 </li>
@@ -312,6 +331,8 @@ export default function optionSeclectForm(option) {
                                                         setClasses={setClasses}
                                                         handleClickother={handleClick}
                                                         addClasses={addClasses}
+                                                        fooditem={option.fooditem}
+                                                        setfooditem={option.setfooditem}
                                                         // onClick={onclick}
                                                     />
                                                 </li>
@@ -354,6 +375,8 @@ export default function optionSeclectForm(option) {
                                                         setClasses={setClasses}
                                                         handleClickother={handleClick}
                                                         addClasses={addClasses}
+                                                        fooditem={option.fooditem}
+                                                        setfooditem={option.setfooditem}
                                                     // onClick={onclick}
                                                     />
                                                 </li>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect} from 'react'
 import Paper from "@material-ui/core/Paper";
 import {  makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -122,38 +122,40 @@ const ListForms =(props)=>{
         Onion: "very little",
         Garlic: "Medium Amount",
         Spicy: "spicy",
-        Meat: "normal"
+        Meat: ""
        }
        const [OrderDetailList, setOrderList] = useState(initialOpiton);
-       // console.log(OrderDetailList);
-
-
+      //  console.log(OrderDetailList);
        const [foodOrder, setNewOrder] = useState([]);
       
-  const addnewFoodList = (newItem) => {
-    setNewOrder(prevList => {
-      return [...prevList, newItem];
-    });
-  };
+        const addnewFoodList = (newItem) => {
+          setNewOrder(prevList => {
+            return [...prevList, newItem];
+          });
+        };
           const initialfoodDefault = {
           id: "",
           foodName: `${props.foodName}`,
-          foodOption: "",
+          foodOption: OrderDetailList,
           price: `${props.price}`,
             };
          const [fooditem, setfooditem] = useState(initialfoodDefault);
-
-         const saveOrder = (event) => {
+ 
+        const addnewitemfood = (newitem) => {
+                // setfooditem({
+            //   ...fooditem,
+            //   foodOption: OrderDetailList
+            // });
+        }
+       const saveOrder = (event) => {
          
           setOpen(false);
-          setfooditem({
-            ...fooditem, 
-            foodOption: OrderDetailList
-          });
+          
+          
            addnewFoodList(fooditem);
          
         };
- 
+        
         console.log(foodOrder);
          const addnewFood = (newFood) => {
            
@@ -267,7 +269,14 @@ const ListForms =(props)=>{
                   <Grid className="OptionSelectForm" >
                     
 
-                    <OptionSelectionForm foodName={props.foodName} foodType={props.foodType} OrderDetailList={OrderDetailList} setOrderList={setOrderList}/>
+                    <OptionSelectionForm 
+                    foodName={props.foodName} 
+                    foodType={props.foodType} 
+                    OrderDetailList={OrderDetailList} 
+                      setOrderList={setOrderList}
+                    fooditem={fooditem}
+                      setfooditem={setfooditem}
+                    />
                    
                     
                   </Grid>
