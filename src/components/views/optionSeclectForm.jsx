@@ -117,30 +117,64 @@ const OptionForm=(props)=> {
 
 
     }
-    const handleClick = (event)=> {
-        // props.setOrderList((prevItem) => {
-        //     return {
-        //         ...prevItem,
-        //         [props.optionKind]: props.optionName,
-        //     };
+    const handleClick = ()=> {
+        console.log("write on choose");
+        // handlechange();
+        props.setOrderList((prevItem) => {
+            return {
+                ...prevItem,
+                [props.optionKind]: props.optionName,
+            };
+        });
+        // props.setfooditem({
+        //     ...props.fooditem,
+        //     foodOption:props.OrderDetailList,
         // })
 
-         props.setfooditem({
-              ...props.fooditem,
-             foodOption: prevItem => {
-                 return {
-               ...prevItem,
-                [props.optionKind]: props.optionName
-              };
-              },
-            });
+        // props.setfooditem( (prevvalue) => {
+        //         return {
+        //                foodOption: {
+        //                 ...prevvalue,
+        //                 [props.optionKind]: props.optionName,
+        //               }};
+        //         });
 
 
-       //pass value to parent
-      
+            //       foodOption: props.OrderDetailList,
+            //   foodOption: props.setOrderList((prevItem) => {
+            //      return {
+            //          ...prevItem,
+            //          [props.optionKind]: props.optionName,
+            //      };
+            //  })
+
+
+            //  foodOption: prevItem => {
+            //      return {
+            //    ...prevItem,
+            //     [props.optionKind]: props.optionName
+            //   };
+            //   },
+            // });
+
+
+         //pass value to parent
+            
     }
+//    const handlechange=()=> {
+//        props.setOrderList((prevItem) => {
+//            return {
+//                ...prevItem,
+//                [props.optionKind]: props.optionName,
+//            };
+//        });
+//        props.setfooditem({
+//            ...props.fooditem,
+//            foodOption: props.OrderDetailList,
+//        });
+
+//    }
     
-  
     return (
         <div  id={`${props.id}-${props.optionKind}`} key={props.id} className={isCLasses()}  onClick={handleClick}>
              <div className={classes.root}>
@@ -238,8 +272,9 @@ export default function optionSeclectForm(option) {
                                                             setClasses={setClasses}
                                                             handleClickother={handleClick}
                                                             addClasses={addClasses}
-                                                            fooditem={option.fooditem}
-                                                            setfooditem={option.setfooditem}
+                                                            // fooditem={option.fooditem}
+                                                            quantityOrder={option.quantityOrder}
+                                                           // setfooditem={option.setfooditem}
                                                          
                                                             
                                                         >
@@ -287,8 +322,10 @@ export default function optionSeclectForm(option) {
                                                         setClasses={setClasses}
                                                         handleClickother={handleClick}
                                                         addClasses={addClasses}
-                                                        fooditem={option.fooditem}
-                                                        setfooditem={option.setfooditem}
+                                                        // fooditem={option.fooditem}
+                                                        quantityOrder={option.quantityOrder}
+
+                                                        // setfooditem={option.setfooditem}
                                                         // onClick={onclick}
                                                     />
                                                 </li>
@@ -331,8 +368,10 @@ export default function optionSeclectForm(option) {
                                                         setClasses={setClasses}
                                                         handleClickother={handleClick}
                                                         addClasses={addClasses}
-                                                        fooditem={option.fooditem}
-                                                        setfooditem={option.setfooditem}
+                                                        // fooditem={option.fooditem}
+                                                        quantityOrder={option.quantityOrder}
+
+                                                        // setfooditem={option.setfooditem}
                                                         // onClick={onclick}
                                                     />
                                                 </li>
@@ -375,8 +414,10 @@ export default function optionSeclectForm(option) {
                                                         setClasses={setClasses}
                                                         handleClickother={handleClick}
                                                         addClasses={addClasses}
-                                                        fooditem={option.fooditem}
-                                                        setfooditem={option.setfooditem}
+                                                        // fooditem={option.fooditem}
+                                                        quantityOrder={option.quantityOrder}
+
+                                                        // setfooditem={option.setfooditem}
                                                     // onClick={onclick}
                                                     />
                                                 </li>

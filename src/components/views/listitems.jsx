@@ -119,10 +119,13 @@ const ListForms =(props)=>{
          setOpen(false);
        };
        const initialOpiton = {
-        Onion: "very little",
-        Garlic: "Medium Amount",
-        Spicy: "spicy",
-        Meat: ""
+        foodName: `${props.foodName}`,
+        price: `${props.price}`,
+        quantityOrder:  quantityOrder,
+        // Onion: "very little",
+        // Garlic: "Medium Amount",
+        // Spicy: "spicy",
+        // Meat: ""
        }
        const [OrderDetailList, setOrderList] = useState(initialOpiton);
       //  console.log(OrderDetailList);
@@ -133,29 +136,31 @@ const ListForms =(props)=>{
             return [...prevList, newItem];
           });
         };
-          const initialfoodDefault = {
-          id: "",
-          foodName: `${props.foodName}`,
-          foodOption: OrderDetailList,
-          price: `${props.price}`,
-            };
-         const [fooditem, setfooditem] = useState(initialfoodDefault);
+        //   const initialfoodDefault = {
+        //   id: "",
+        //   foodName: `${props.foodName}`,
+        //   foodOption: {OrderDetailList},
+        //   price: `${props.price}`,
+        //     };
+        //  const [fooditem, setfooditem] = useState(initialfoodDefault);
  
         const addnewitemfood = (newitem) => {
-                // setfooditem({
+            //     setfooditem({
             //   ...fooditem,
             //   foodOption: OrderDetailList
             // });
         }
        const saveOrder = (event) => {
-         
-          setOpen(false);
-          
-          
-           addnewFoodList(fooditem);
+         console.log("write on save");
+          setOpen(false);  
+          //  setfooditem({
+          //    ...fooditem,
+          //    foodOption: event.target.orderdetaillist
+          //  });
+        
+          addnewFoodList(OrderDetailList);
          
         };
-        
         console.log(foodOrder);
          const addnewFood = (newFood) => {
            
@@ -166,17 +171,32 @@ const ListForms =(props)=>{
       const addValue=()=>{
         if(quantityOrder<50){
           setQuantity(quantityOrder + 1);
+          setOrderList((prevItem) => {
+            return {
+              ...prevItem,
+              quantityOrder: quantityOrder+1,
 
+            }
+          })
         }
       }
       const minusValue=()=> {
         if(quantityOrder>1){
           setQuantity(quantityOrder - 1);
+          setOrderList((prevItem) => {
+            return {
+              ...prevItem,
+              quantityOrder: quantityOrder-1,
+
+            }
+          })
 
         }
       }
-      const handleChange=()=> {
+      const handleChange=(event)=> {
         setQuantity(quantityOrder);
+      
+  
       }
      
     return (
@@ -274,8 +294,9 @@ const ListForms =(props)=>{
                     foodType={props.foodType} 
                     OrderDetailList={OrderDetailList} 
                       setOrderList={setOrderList}
-                    fooditem={fooditem}
-                      setfooditem={setfooditem}
+                    // fooditem={fooditem}
+                    //   setfooditem={setfooditem}
+                      quantityOrder={quantityOrder}
                     />
                    
                     
@@ -309,8 +330,9 @@ const ListForms =(props)=>{
               <button
                 className="addbtnCart"
                 ordername={props.foodName}
+                // fooditem={fooditem}
                 orderquantity={quantityOrder}
-                orderdetaillist={OrderDetailList}
+                
                 onClick={saveOrder}
                 
               >
