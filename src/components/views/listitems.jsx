@@ -129,10 +129,10 @@ const ListForms =(props)=>{
        }
        const [OrderDetailList, setOrderList] = useState(initialOpiton);
       //  console.log(OrderDetailList);
-       const [foodOrder, setNewOrder] = useState([]);
-      
+      //  const [foodOrder, setNewOrder] = useState([]);
+        
         const addnewFoodList = (newItem) => {
-          setNewOrder(prevList => {
+          props.setNewOrder(prevList => {
             return [...prevList, newItem];
           });
         };
@@ -144,30 +144,29 @@ const ListForms =(props)=>{
         //     };
         //  const [fooditem, setfooditem] = useState(initialfoodDefault);
  
-        const addnewitemfood = (newitem) => {
-            //     setfooditem({
-            //   ...fooditem,
-            //   foodOption: OrderDetailList
-            // });
-        }
+        // const addnewitemfood = (newitem) => {
+        //     //     setfooditem({
+        //     //   ...fooditem,
+        //     //   foodOption: OrderDetailList
+        //     // });
+        // }
        const saveOrder = (event) => {
-         console.log("write on save");
+        //  console.log("write on save");
           setOpen(false);  
           //  setfooditem({
           //    ...fooditem,
           //    foodOption: event.target.orderdetaillist
-          //  });
-        
+          //  }); 
           addnewFoodList(OrderDetailList);
          
         };
-        console.log(foodOrder);
-         const addnewFood = (newFood) => {
+       
+        //  const addnewFood = (newFood) => {
            
-         };
-         const handleSubmit = (event) => {
+        //  };
+        //  const handleSubmit = (event) => {
            
-         };      
+        //  };      
       const addValue=()=>{
         if(quantityOrder<50){
           setQuantity(quantityOrder + 1);
@@ -195,8 +194,6 @@ const ListForms =(props)=>{
       }
       const handleChange=(event)=> {
         setQuantity(quantityOrder);
-      
-  
       }
      
     return (
@@ -293,10 +290,10 @@ const ListForms =(props)=>{
                     foodName={props.foodName} 
                     foodType={props.foodType} 
                     OrderDetailList={OrderDetailList} 
-                      setOrderList={setOrderList}
+                    setOrderList={setOrderList}
                     // fooditem={fooditem}
                     //   setfooditem={setfooditem}
-                      quantityOrder={quantityOrder}
+                    quantityOrder={quantityOrder}
                     />
                    
                     
@@ -352,9 +349,12 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
     
-export default function listitems() {
+const  listitems = (props) => {
 
 
+  
+ 
+ 
     return (
       <div>
         <section>
@@ -385,6 +385,8 @@ export default function listitems() {
                       foodImage={list.foodImage}
                       price={list.price}
                       foodOption={list.foodOption}
+                      foodOrder={props.foodOrder}
+                      setNewOrder={props.setNewOrder}
                       onClick={onclick}
                     /> 
                   </div>
@@ -419,6 +421,8 @@ export default function listitems() {
                         foodId={list.foodId}
                         foodPrice={list.foodPrice}
                         foodImage={list.foodImage}
+                        foodOrder={props.foodOrder}
+                        setNewOrder={props.setNewOrder}
                         onClick={onclick}
                       />
                       
@@ -456,6 +460,8 @@ export default function listitems() {
                         foodImage={list.foodImage}
                         price={list.price}
                         foodOption={list.foodOption}
+                        foodOrder={props.foodOrder}
+                        setNewOrder={props.setNewOrder}
                         onClick={onclick}
                       />
                       
@@ -471,3 +477,4 @@ export default function listitems() {
     }
     
 
+export default listitems;

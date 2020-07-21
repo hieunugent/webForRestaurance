@@ -19,7 +19,6 @@ import Slide from "@material-ui/core/Slide";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { Dialog } from '@material-ui/core';
 import OrderDetails from './receiptForm';
-import TotalAmount from './totalamountOrder';
 import "../style/main.css";
 
 
@@ -93,7 +92,7 @@ const useStyles = makeStyles((theme) => ({
 const Transitioncard = React.forwardRef(function Transitioncard(props, ref) {
   return <Slide direction="left" ref={ref} {...props} />;
 });
-export default function Navbar() {
+export default function Navbar(props) {
     
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -148,7 +147,7 @@ export default function Navbar() {
       >
         <MenuItem>
           <IconButton aria-label="shoppingCart" color="inherit">
-            <Badge badgeContent={4} color="secondary">
+            <Badge badgeContent={props.foodOrder.length} color="secondary">
               <AddShoppingCartIcon />
             </Badge>
           </IconButton>
@@ -175,7 +174,14 @@ export default function Navbar() {
   const handleCloseCart = () => {
     setcartOpen(false);
   };
- 
+   function isemptycart(){
+     if(props.foodOrder.length === 0 || props.foodOrder == null){
+       return "hide";
+     }
+     else{
+       return "makepaymentBtn"
+     }
+   }
     return (
       <div className={classes.grow}>
         <AppBar className={classes.root} position="fixed">
@@ -194,9 +200,10 @@ export default function Navbar() {
             </Typography>
           
             <div className={classes.grow} />
+
             <div className={classes.sectionDesktop}>
               <IconButton aria-label="show 4 new mails" color="inherit" onClick={handleOpenCart} >
-                <Badge badgeContent={4} color="secondary" >
+                <Badge badgeContent={props.foodOrder.length} color="secondary" >
                   <AddShoppingCartIcon />
                 </Badge>
               </IconButton>
@@ -207,11 +214,11 @@ export default function Navbar() {
                   onClose={handleCloseCart}
                   TransitionComponent={Transitioncard}
                 >
-                  <OrderDetails />
-                  <TotalAmount />
+                  <OrderDetails finalfood={props.foodOrder} />
+                 
 
                   <div>
-                    <button className="makepaymentBtn" onClick={handleCloseCart}>
+                    <button className={isemptycart()} onClick={handleCloseCart}>
                       Make Payment
                        </button>
                     <br />
@@ -228,7 +235,7 @@ export default function Navbar() {
             <div className={classes.sectionMobile}>
             <div>
                 <IconButton aria-label="show 4 new mails" color="inherit" onClick={handleOpenCart}>
-                  <Badge badgeContent={2} color="secondary"  >
+                  <Badge badgeContent={props.foodOrder.length} color="secondary"  >
                     <AddShoppingCartIcon />
                   </Badge>
                 </IconButton>
@@ -239,11 +246,11 @@ export default function Navbar() {
                     onClose={handleCloseCart}
                     TransitionComponent={Transitioncard}
                   > 
-                       <OrderDetails/>
-                        <TotalAmount/>
+                       <OrderDetails  finalfood={props.foodOrder}  />
+                        {/* <TotalAmount/> */}
                        
                        <div>
-                      <button className="makepaymentBtn" onClick={handleCloseCart}>
+                      <button className={isemptycart()} onClick={handleCloseCart}>
                         Make Payment
                        </button>
                       <br />

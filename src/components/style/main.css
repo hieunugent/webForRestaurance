@@ -29,3 +29,11 @@
 .colorinstagram{
     color:  hsl(0, 60%, 34%)
 }
+.hide{
+    display: none;
+}
+.headlineEmpty{
+    color: hsl(0, 63%, 7%);
+    font-family: cursive;
+    margin-left: 2rem;
+}

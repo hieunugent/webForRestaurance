@@ -20,7 +20,7 @@ const BillingForm=(props)=> {
       </div>
     );
 }
-export default function receiptForm() {
+export default function receiptForm(props) {
     function taxsCal(amount, rate){
         return (
             amount*rate);
@@ -42,9 +42,9 @@ function totalAmount(amount, rate) {
             </Grid>
             <Grid>
               <div className="alignment-data">
-                <h5>30.00 </h5>
-                <h5>{taxsCal(30,0.095)}</h5>
-                <h3> {totalAmount(30,0.095)}</h3>
+                <h5>$ {props.total} </h5>
+                <h5>$ {taxsCal(props.total,0.095)}</h5>
+                <h3>$ {totalAmount(props.total,0.095)}</h3>
               </div>
             </Grid>
           </Grid>
