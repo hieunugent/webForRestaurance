@@ -79,10 +79,12 @@ input[type=number]::-webkit-inner-spin-button{
     margin-left: "2rem";
 }
 .section-food-desktop{
-    display: inline-flex;
-    flex-wrap: nowrap;
-     background-position-y: 120px;
-     margin-left: 2rem;
+    display: flex;
+    flex-wrap:  nowrap;
+    width: 80%;
+    background-position-y: 120px;
+    margin-left: 2rem;
+    -webkit-appearance: none;
 }
 section {
     overflow-y: scroll;
@@ -98,6 +100,7 @@ section {
 .itemFood{
   width: 100%;
 }
+
 .section-food>.itemFood{
     flex: 0 50%;
 }

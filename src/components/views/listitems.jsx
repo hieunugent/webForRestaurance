@@ -94,7 +94,11 @@ const useStyles = makeStyles((theme) => ({
   sectionDesktop: {
     display: 'none',
     [theme.breakpoints.up('sm')]: {
-      display: 'flex',
+      display: 'inline',
+      marginLeft: "10%",
+      marginRight:"10%",
+      WebkitAppearance:"none",
+
     },
   },
   sectionMobile: {
