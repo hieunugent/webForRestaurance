@@ -93,13 +93,13 @@ const useStyles = makeStyles((theme) => ({
   },
   sectionDesktop: {
     display: 'none',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       display: 'flex',
     },
   },
   sectionMobile: {
     display: 'flex',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
   },
@@ -201,6 +201,9 @@ const ListForms =(props)=>{
         {/* this section for mobile view */}
 
         {/* list food page */}
+
+
+        
         <div onClick={handleClickOpen} className={classes.root}>
           <Paper className={classes.paper} elevation={0}>
             <Grid item className={classes.bottomLayer}>
@@ -351,12 +354,14 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     
 const  listitems = (props) => {
 
-
+// eslint-disable-next-line react-hooks/rules-of-hooks
+const classes = useStyles();
   
  
  
     return (
-      <div>
+      <>
+      <div className= {classes.sectionMobile}>
         <section>
 
         <section id="FastFood">
@@ -473,7 +478,130 @@ const  listitems = (props) => {
         </section>
 
       </div>
-    );
+   
+   
+   
+      <div className={classes.sectionDesktop}>
+
+          <section>
+
+            <section id="FastFood">
+              <div className="outer-title-section">
+                <div className="titlesection">
+                  <div className="inner-title-section">
+                    <h3 className="sectionTitle"> Appetizers</h3>
+                  </div>
+                </div>
+              </div>
+
+              <div className="section-food-desktop">
+                {listFood
+                  .filter((list) => list.foodType === "fastfood")
+                  .map((list, index) => {
+                    return (
+                      <div key={`${index}-${list.foodName}`} className="itemFood">
+                        <ListForms
+                          id={index}
+                          value={list}
+                          foodName={list.foodName}
+                          foodType={list.foodType}
+                          foodDescription={list.foodDescription}
+                          foodId={list.foodId}
+                          foodPrice={list.foodPrice}
+                          foodImage={list.foodImage}
+                          price={list.price}
+                          foodOption={list.foodOption}
+                          foodOrder={props.foodOrder}
+                          setNewOrder={props.setNewOrder}
+                          onClick={onclick}
+                        />
+                      </div>
+                    );
+                  })}
+              </div>
+            </section>
+
+            <section id="Dishes">
+              <div className="outer-title-section">
+                <div className="titlesection">
+                  <div className="inner-title-section">
+                    <h3 className="sectionTitle"> Main Dishes</h3>
+                  </div>
+                </div>
+              </div>
+
+              <div className="section-food-desktop">
+                {listFood
+                  .filter((list) => list.foodType === "dish" || list.foodType === "Noodle")
+                  .map((list, index) => {
+                    return (
+                      <div key={`${index}-${list.foodName}`} className="itemFood">
+                        <ListForms
+                          id={index}
+                          value={list}
+                          foodName={list.foodName}
+                          price={list.price}
+                          foodType={list.foodType}
+                          foodOption={list.foodOption}
+                          foodDescription={list.foodDescription}
+                          foodId={list.foodId}
+                          foodPrice={list.foodPrice}
+                          foodImage={list.foodImage}
+                          foodOrder={props.foodOrder}
+                          setNewOrder={props.setNewOrder}
+                          onClick={onclick}
+                        />
+
+                      </div>
+                    );
+                  })}
+              </div>
+            </section>
+
+
+            <section id="Drinks">
+
+              <div className="outer-title-section">
+                <div className="titlesection">
+                  <div className="inner-title-section">
+                    <h3 className="sectionTitle"> Drinks Options</h3>
+                  </div>
+                </div>
+              </div>
+
+              <div className="section-food-desktop">
+                {listFood
+                  .filter((list) => list.foodType === "drinks")
+                  .map((list, index) => {
+                    return (
+                      <div key={`${index}-${list.foodName}`} className="itemFood">
+                        <ListForms
+                          id={index}
+                          value={list}
+                          foodName={list.foodName}
+                          foodType={list.foodType}
+                          foodDescription={list.foodDescription}
+                          foodId={list.foodId}
+                          foodPrice={list.foodPrice}
+                          foodImage={list.foodImage}
+                          price={list.price}
+                          foodOption={list.foodOption}
+                          foodOrder={props.foodOrder}
+                          setNewOrder={props.setNewOrder}
+                          onClick={onclick}
+                        />
+
+                      </div>
+                    );
+                  })}
+              </div>
+            </section>
+          </section>
+
+      </div>
+   </>
+   
+   );
     }
     
 

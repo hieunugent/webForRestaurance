@@ -28,11 +28,24 @@
 .item-menu-nav{
     display: flex;
     margin-left: 5%;
-    margin-right: 5%;
-    
+    margin-right: 5%; 
     padding-top: 0px;
     padding-bottom: 3px;
     width: 90%;
+    position: relative; 
+    overflow: auto;
+    background-color: white;
+    align-items: center;
+    border-bottom: 3px solid hsla(0, 1%, 29%, 0.285); 
+
+}
+.item-menu-nav-desktop{
+    display: flex;
+    margin-left: 50%;
+    margin-right: 25%; 
+    padding-top: 0px;
+    padding-bottom: 3px;
+    width: 100%;
     position: relative; 
     overflow: auto;
     background-color: white;

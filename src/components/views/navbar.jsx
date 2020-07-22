@@ -196,7 +196,7 @@ export default function Navbar(props) {
               <PolymerIcon fontSize="large" />
             </IconButton>
             <Typography className={classes.title} variant="h6" noWrap>
-              Your Restaurant
+              Your Restaurant 
             </Typography>
           
             <div className={classes.grow} />
